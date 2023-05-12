@@ -61,51 +61,20 @@
           <a class="our_text" href="/category.ejs"><h2>Our categories</h2></a>
     <p class="_text">Explore our wide range of products</p>
   </div>
-        <div class="accordian">
-
-          <ul>
-            <li>
-              <div class="image_title">
-                <a href="/category.ejs">Beds & mattresses</a>
-              </div>
-              <a href="/category.ejs">
-                <img class="myimg" src="/images/beds-mattresses.jpg" />
-              </a>
-            </li>
-            <li>
-              <div class="image_title">
-                <a href="/category.ejs">Furniture</a>
-              </div>
-              <a href="/category.ejs">
-                <img class="myimg" src="/images/furniture.jpg" />
-              </a>
-            </li>
-            <li>
-              <div class="image_title">
-                <a href="/category.ejs">Decoration</a>
-              </div>
-              <a href="/category.ejs">
-                <img class="myimg" src="/images/decoration.jpg" />
-              </a>
-            </li>
-            <li>
-              <div class="image_title">
-                <a href="/category.ejs">Kitchen & appliances</a>
-              </div>
-              <a href="/category.ejs">
-                <img class="myimg" src="/images/kitchen-appliances.jpg" />
-              </a>
-            </li>
-            <li>
-              <div class="image_title">
-                <a href="/category.ejs">Bathroom products</a>
-              </div>
-              <a href="/category.ejs">
-                <img class="myimg" src="/images/bathroom-products.jpg" />
-              </a>
-            </li>
-          </ul>
-        </div>
+  <div class="accordian">
+    <ul>
+      <% cat.forEach(catItem => { %>
+        <li>
+          <div class="image_title">
+            <a href="/category.ejs"><%= catItem.name %></a>
+          </div>
+          <a href="/category.ejs">
+            <img class="myimg" src="<%= catItem.imageUrl %>" />
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
       </section>
       <section id="Offers">
         <div class="product-container">
