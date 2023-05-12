@@ -15,85 +15,14 @@
   </head>
   <body>
     <!-- ---------nav------------ -->
-    <header id="nav-wrapper">
-      <nav id="nav">
-        <div class="nav left">
-          <span class="gradient skew"
-            ><h1 class="logo un-skew"><a href="#home">IKEA</a></h1></span
-          >
-        </div>
-        <div class="nav center">
-          <a href="#home" class="nav-link active"
-            ><span class="nav-link-span"
-              ><span class="u-nav">Home</span></span
-            ></a
-          >
-          <a href="#categories" class="nav-link"
-            ><span class="nav-link-span"
-              ><span class="u-nav">categories</span></span
-            ></a
-          >
-          <a href="#Offers" class="nav-link"
-            ><span class="nav-link-span"
-              ><span class="u-nav">Offers</span></span
-            ></a
-          >
-          <a href="#contact" class="nav-link"
-            ><span class="nav-link-span"
-              ><span class="u-nav">Contact Us</span></span
-            ></a
-          >
-          <a href="#About-US" class="nav-link"
-          ><span class="nav-link-span"
-            ><span class="u-nav">About US</span></span
-          ></a
-        ></div>
-        <div class="nav right">
-          <button id="menu" class="btn-nav">
-            <span class="fas fa-bars"></span>
-          </div>
-          <!--------------- search bar----------- -->
-
-          <div class="srch_wrpr">
-            
-          </button>
-            <input type="checkbox" name="" class="checkbox" />
-            <div class="srch_sb_cnt">
-              <input
-                type="text"
-                name="text_bar"
-                class="sech_txt_inpt"
-                placeholder="Type to search..."
-              />
-              <button class="srch_btn">
-                <i class="fa fa-search"aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
-          <!-- profile button -->
-          <div>
-            
-              <a href="../Web-development-project/The project/Html/form.html"><button class="btn-signin">Sign in</button></a>
-           <!-- <a href=""><button class="userbtn"> <i class="fa fa-user" style="font-size:30px;"></i> </button></a>         -->
-           </div>
-          <!-- cart button -->
-        <div>
-          <a href="../Web-development-project/The project/Html/cart page.html">
-         <button class="cartbtn"><i class='fa fa-shopping-cart' style='font-size:36px'></i></button></a>
-         </div>
-         
-          <!-- --------- -->
-        </div>
-        
-      </nav>
-    </header>
+   <%- include("./partials/nav.ejs") %>
     <main>
       <section id="home">
         <!-------------------------------------------- Slideshow--------------------------------------------------->
         <div class="mySlides fade">
           <img
             class="im"
-            src="../Web-development-project/The project/images/GM-BOXX-04-3-large (1).jpg"
+            src="/images/GM-BOXX-04-3-large (1).jpg"
             style="width: 100%"
           />
           <h1 class="fur">Furniture</h1>
@@ -103,7 +32,7 @@
         <div class="mySlides fade">
           <img
             class="im"
-            src="../Web-development-project/The project/images/61tV07vXkIL._SL1173_.jpg"
+            src="/images/61tV07vXkIL._SL1173_.jpg"
             style="width: 100%"
           />
           <h1 class="fur">Furniture</h1>
@@ -113,7 +42,7 @@
         <div class="mySlides fade">
           <img
             class="im"
-            src="../Web-development-project/The project/images/living-wall306.jpeg"
+            src="/images/living-wall306.jpeg"
             style="width: 100%"
           />
           <h1 class="fur">Furniture</h1>
@@ -140,7 +69,7 @@
                 <a href="#">Beds & mattresses</a>
               </div>
               <a href="../Web-development-project/The project/Html/category.html">
-                <img class="myimg" src="../Web-development-project/The project/images/beds-mattresses.jpg" />
+                <img class="myimg" src="/images/beds-mattresses.jpg" />
               </a>
             </li>
             <li>
@@ -148,7 +77,7 @@
                 <a href="#">Furniture</a>
               </div>
               <a href="#">
-                <img class="myimg" src="../Web-development-project/The project/images/furniture.jpg" />
+                <img class="myimg" src="/images/furniture.jpg" />
               </a>
             </li>
             <li>
@@ -156,7 +85,7 @@
                 <a href="#">Decoration</a>
               </div>
               <a href="#">
-                <img class="myimg" src="../Web-development-project/The project/images/decoration.jpg" />
+                <img class="myimg" src="/images/decoration.jpg" />
               </a>
             </li>
             <li>
@@ -164,7 +93,7 @@
                 <a href="#">Kitchen & appliances</a>
               </div>
               <a href="#">
-                <img class="myimg" src="../Web-development-project/The project/images/kitchen-appliances.jpg" />
+                <img class="myimg" src="/images/kitchen-appliances.jpg" />
               </a>
             </li>
             <li>
@@ -172,7 +101,7 @@
                 <a href="#">Bathroom products</a>
               </div>
               <a href="#">
-                <img class="myimg" src="../Web-development-project/The project/images/bathroom-products.jpg" />
+                <img class="myimg" src="/images/bathroom-products.jpg" />
               </a>
             </li>
           </ul>
@@ -182,7 +111,7 @@
         <div class="product-container">
           
           <div class="product-card" role="button" onclick=" location.href='/Web-development-project/The project/Html/Product-page.html' ""  >
-            <img src="../Web-development-project/The project/images/chair2.jpg" alt="Product Name" class="product-image" />
+            <img src="/images/chair2.jpg" alt="Product Name" class="product-image" />
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
@@ -190,7 +119,7 @@
           </div>
     
           <div class="product-card" role="button" onclick=" location.href='/Web-development-project/The project/Html/Product-page.html' "" >
-            <img src="../Web-development-project/The project/images/chair2.jpg" alt="Product Name" class="product-image" />
+            <img src="/images/chair2.jpg" alt="Product Name" class="product-image" />
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">
@@ -201,7 +130,7 @@
           </div>
     
           <div class="product-card" role="button" onclick=" location.href='/Web-development-project/The project/Html/Product-page.html' "">
-            <img src="../Web-development-project/The project/images/chair2.jpg" alt="Product Name" class="product-image" />
+            <img src="/images/chair2.jpg" alt="Product Name" class="product-image" />
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">$99.99</div>
@@ -209,7 +138,7 @@
           </div>
     
           <div class="product-card" role="button" onclick=" location.href='/Web-development-project/The project/Html/Product-page.html' "">
-            <img src="../Web-development-project/The project/images/chair2.jpg" alt="Product Name" class="product-image" />
+            <img src="/images/chair2.jpg" alt="Product Name" class="product-image" />
             <h3 class="product-name">Product Name</h3>
             <p class="product-description">Product Description</p>
             <div class="product-price">
@@ -237,7 +166,7 @@
           </div>
           </div>
           <div >
-            <img class="contact-img" src="../Web-development-project/The project/images/img-9.png">
+            <img class="contact-img" src="/images/img-9.png">
           </div>
           </div>
          
