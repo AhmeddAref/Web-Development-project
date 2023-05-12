@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IKEA</title>
+
+    <link rel="stylesheet" href="/Css/Homepage.css" />
+    <!-- search icon  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- ---------nav------------ -->
+    <header id="nav-wrapper">
+      <nav id="nav">
+        <div class="nav left">
+          <span class="gradient skew"
+            ><h1 class="logo un-skew"><a href="#home">IKEA</a></h1></span
+          >
+        </div>
+        <div class="nav center">
+          <a href="#home" class="nav-link active"
+            ><span class="nav-link-span"
+              ><span class="u-nav">Home</span></span
+            ></a
+          >
+          <a href="#categories" class="nav-link"
+            ><span class="nav-link-span"
+              ><span class="u-nav">categories</span></span
+            ></a
+          >
+          <a href="#Offers" class="nav-link"
+            ><span class="nav-link-span"
+              ><span class="u-nav">Offers</span></span
+            ></a
+          >
+          <a href="#contact" class="nav-link"
+            ><span class="nav-link-span"
+              ><span class="u-nav">Contact Us</span></span
+            ></a
+          >
+          <a href="#About-US" class="nav-link"
+          ><span class="nav-link-span"
+            ><span class="u-nav">About US</span></span
+          ></a
+        ></div>
+        <div class="nav right">
+          <button id="menu" class="btn-nav">
+            <span class="fas fa-bars"></span>
+          </div>
+          <!--------------- search bar----------- -->
+
+          <div class="srch_wrpr">
+            
+          </button>
+            <input type="checkbox" name="" class="checkbox" />
+            <div class="srch_sb_cnt">
+              <input
+                type="text"
+                name="text_bar"
+                class="sech_txt_inpt"
+                placeholder="Type to search..."
+              />
+              <button class="srch_btn">
+                <i class="fa fa-search"aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+          <!-- profile button -->
+          <div>
+            
+              <a href="../Web-development-project/The project/Html/form.html"><button class="btn-signin">Sign in</button></a>
+           <!-- <a href=""><button class="userbtn"> <i class="fa fa-user" style="font-size:30px;"></i> </button></a>         -->
+           </div>
+          <!-- cart button -->
+        <div>
+          <a href="../Web-development-project/The project/Html/cart page.html">
+         <button class="cartbtn"><i class='fa fa-shopping-cart' style='font-size:36px'></i></button></a>
+         </div>
+         
+          <!-- --------- -->
+        </div>
+        
+      </nav>
+    </header>
+    <main>
+      <section id="home">
+        <!-------------------------------------------- Slideshow--------------------------------------------------->
+        <div class="mySlides fade">
+          <img
+            class="im"
+            src="../Web-development-project/The project/images/GM-BOXX-04-3-large (1).jpg"
+            style="width: 100%"
+          />
+          <h1 class="fur">Furniture</h1>
+          <p class="the">Create Your Home</p>
+        </div>
+
+        <div class="mySlides fade">
+          <img
+            class="im"
+            src="../Web-development-project/The project/images/61tV07vXkIL._SL1173_.jpg"
+            style="width: 100%"
+          />
+          <h1 class="fur">Furniture</h1>
+          <p class="the">Create Your Home</p>
+        </div>
+
+        <div class="mySlides fade">
+          <img
+            class="im"
+            src="../Web-development-project/The project/images/living-wall306.jpeg"
+            style="width: 100%"
+          />
+          <h1 class="fur">Furniture</h1>
+          <p class="the">Create Your Home</p>
+        </div>
+        <div style="text-align: center">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </section>
+      <!-- -----------------------categories----------------------------- -->
+      <section id="categories">
+         <div class="section-text">
+          <h1></h1>
+          <a class="our_text" href="../Web-development-project/The project/Html/category.html"><h2>Our categories</h2></a>
+    <p class="_text">Explore our wide range of products</p>
+  </div>
+        <div class="accordian">
+
+          <ul>
+            <li>
+              <div class="image_title">
+                <a href="#">Beds & mattresses</a>
+              </div>
+              <a href="../Web-development-project/The project/Html/category.html">
+                <img class="myimg" src="../Web-development-project/The project/images/beds-mattresses.jpg" />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="#">Furniture</a>
+              </div>
+              <a href="#">
+                <img class="myimg" src="../Web-development-project/The project/images/furniture.jpg" />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="#">Decoration</a>
+              </div>
+              <a href="#">
+                <img class="myimg" src="../Web-development-project/The project/images/decoration.jpg" />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="#">Kitchen & appliances</a>
+              </div>
+              <a href="#">
+                <img class="myimg" src="../Web-development-project/The project/images/kitchen-appliances.jpg" />
+              </a>
+            </li>
+            <li>
+              <div class="image_title">
+                <a href="#">Bathroom products</a>
+              </div>
+              <a href="#">
+                <img class="myimg" src="../Web-development-project/The project/images/bathroom-products.jpg" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section id="Offers">
+        <div class="product-container">
+          
+          <div class="product-card" role="button" onclick=" location.href='/Web-development-project/The project/Html/Product-page.html' ""  >
+            <img src="../Web-development-project/The project/images/chair2.jpg" alt="Product Name" class="product-image" />
+            <h3 class="product-name">Product Name</h3>
+            <p class="product-description">Product Description</p>
+            <div class="product-price">$99.99</div>
+            <button class="add-to-cart-button">Add to Cart</button>
+          </div>
+    
+          <div class="product-card" role="button" onclick=" location.href='/Web-development-project/The project/Html/Product-page.html' "" >
+            <img src="../Web-development-project/The project/images/chair2.jpg" alt="Product Name" class="product-image" />
+            <h3 class="product-name">Product Name</h3>
+            <p class="product-description">Product Description</p>
+            <div class="product-price">
+              <span class="original-price">$99.99</span>
+              <span class="discount-price">$79.99</span>
+            </div>
+            <button class="add-to-cart-button">Add to Cart</button>
+          </div>
+    
+          <div class="product-card" role="button" onclick=" location.href='/Web-development-project/The project/Html/Product-page.html' "">
+            <img src="../Web-development-project/The project/images/chair2.jpg" alt="Product Name" class="product-image" />
+            <h3 class="product-name">Product Name</h3>
+            <p class="product-description">Product Description</p>
+            <div class="product-price">$99.99</div>
+            <button class="add-to-cart-button">Add to Cart</button>
+          </div>
+    
+          <div class="product-card" role="button" onclick=" location.href='/Web-development-project/The project/Html/Product-page.html' "">
+            <img src="../Web-development-project/The project/images/chair2.jpg" alt="Product Name" class="product-image" />
+            <h3 class="product-name">Product Name</h3>
+            <p class="product-description">Product Description</p>
+            <div class="product-price">
+              <span class="original-price">$99.99</span>
+              <span class="discount-price">$79.99</span>
+            </div>
+            <button class="add-to-cart-button">Add to Cart</button>
+          </div>
+          <!-- <button class="btn-next">Prev</button>
+          <button class="btn-prev">Next</button> -->
+        </div>
+      </section>
+      <!-- ------------------contact-------------- -->
+      <section id="contact">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-6">
+        <div class="mail_sectin">
+        <input type="text" class="email-bt" placeholder="Name" name="Name"><br>
+        <input type="text" class="email-bt" placeholder="Email" name="Name"><br>
+        <input type="text" class="email-bt" placeholder="Phone Number" name="Name"><br>
+        <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea><br>
+        <div class="send_bt"><a href="#">SEND</a></div>
+      
+          </div>
+          </div>
+          <div >
+            <img class="contact-img" src="../Web-development-project/The project/images/img-9.png">
+          </div>
+          </div>
+         
+       </div>
+      </section>
+      <!-- ----------------footer------------------- -->
+      <section id="About-US">
+        <footer>
+
+    <div class="row">
+
+      <div class="column">
+
+        <h4>About Us</h4>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in metus euismod, faucibus metus ut, semper nibh. Aenean euismod justo eu enim dapibus suscipit.</p>
+
+      </div>
+
+      <div class="column">
+
+        <h4>Quick Links</h4>
+
+        <ul>
+
+          <li><a href="#"><i class="fa fa-angle-right"></i> Locations</a></li>
+
+          <li><a href="#"><i class="fa fa-angle-right"></i> Contact us</a></li>
+
+          <li><a href="#"><i class="fa fa-angle-right"></i> Bug report</a></li>
+
+        </ul>
+
+      </div>
+
+      <div class="column">
+
+        <h4>Connect with Us</h4>
+
+        <ul class="social-icons">
+
+          <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+
+          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+          
+          <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+
+            <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <p class="copyright">© 2023 All Rights Reserved</p>
+
+  </footer>
+      </section>
+    </main>
+
+    <script src="/Js/Homepage.js"></script>
+  </body>
+</html>
