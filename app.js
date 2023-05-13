@@ -12,7 +12,7 @@ app.use(
     saveUninitialized: false,
   })
 );
-
+//-------------------------------------------//
 const cat = [
   { name: "Beds & mattresses", imageUrl: "/images/beds-mattresses.jpg" },
   { name: "Furniture", imageUrl: "/images/furniture.jpg" },
@@ -20,6 +20,7 @@ const cat = [
   { name: "Kitchen & appliances", imageUrl: "/images/kitchen-appliances.jpg" },
   { name: "Bathroom products", imageUrl: "/images/bathroom-products.jpg" },
 ];
+//-------------------------------------------//
 const offers = [
   {
     name: "Product 1",
@@ -50,7 +51,7 @@ const offers = [
     newPrice: "$59.99",
   },
 ];
-
+//-------------------------------------------//
 const slides = [
   {
     imageUrl: "/images/GM-BOXX-04-3-large (1).jpg",
@@ -68,7 +69,7 @@ const slides = [
     subtitle: "Create Your Home",
   },
 ];
-
+//-------------------------------------------//
 const cart = {
   items: [
     {
@@ -102,6 +103,7 @@ cart.subtotal = cart.items.reduce(
 );
 cart.tax = cart.subtotal * 0.05;
 cart.total = cart.subtotal + cart.tax + cart.shipping;
+//-------------------------------------------//
 
 app.get("/", function (req, res) {
   res.render("index", { cat: cat, offers: offers, slides: slides });
@@ -121,4 +123,7 @@ app.get("/cart-page.ejs", function (req, res) {
 });
 app.get("/category.ejs", function (req, res) {
   res.render("category");
+});
+app.get("/checkout-page.ejs", function (req, res) {
+  res.render("checkout-page");
 });

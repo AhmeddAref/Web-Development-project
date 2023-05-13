@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Css/checkout-page.css" />
+  </head>
+  <body>
+    <header>
+      <h3>Checkout</h3>
+    </header>
+
+    <main>
+      <section class="checkout-form">
+        <form action="#!" method="get">
+          <h6>Contact information</h6>
+
+          <div class="form-control">
+            <label for="checkout-phone">Phone</label>
+            <div>
+              <span class="fa fa-phone"></span>
+              <input
+                type="tel"
+                name="checkout-phone"
+                id="checkout-phone"
+                placeholder="Enter you phone..."
+              />
+            </div>
+          </div>
+          <br />
+          <h6>Shipping address</h6>
+          <div class="form-control">
+            <label for="checkout-name">Full name</label>
+            <div>
+              <span class="fa fa-user-circle"></span>
+              <input
+                type="text"
+                id="checkout-name"
+                name="checkout-name"
+                placeholder="Enter you name..."
+              />
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="checkout-address">Address</label>
+            <div>
+              <span class="fa fa-home"></span>
+              <input
+                type="text"
+                name="checkout-address"
+                id="checkout-address"
+                placeholder="Your address..."
+              />
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="checkout-city">City</label>
+            <div>
+              <span class="fa fa-building"></span>
+              <input
+                type="text"
+                name="checkout-city"
+                id="checkout-city"
+                placeholder="Your city..."
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-control">
+              <label for="checkout-country">Country</label>
+              <div>
+                <span class="fa fa-globe"></span>
+                <input
+                  type="text"
+                  name="checkout-country"
+                  id="checkout-country"
+                  placeholder="Your country..."
+                  list="country-list"
+                />
+                <datalist id="country-list">
+                  <option value="India"></option>
+                  <option value="USA"></option>
+                  <option value="Russia"></option>
+                  <option value="Japan"></option>
+                  <option value="Egypt"></option>
+                </datalist>
+              </div>
+            </div>
+            <div class="form-control">
+              <label for="checkout-postal">Postal code</label>
+              <div>
+                <span class="fa fa-archive"></span>
+                <input
+                  type="numeric"
+                  name="checkout-postal"
+                  id="checkout-postal"
+                  placeholder="Your postal code..."
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-control checkbox-control">
+            <input
+              type="checkbox"
+              name="checkout-checkbox"
+              id="checkout-checkbox"
+            />
+            <label for="checkout-checkbox"
+              >Save this information for next time</label
+            >
+          </div>
+          <div class="form-control-btn">
+            <button>Continue</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="checkout-details">
+        <div class="checkout-details-inner">
+          <div class="checkout-lists">
+            <div class="card">
+              <div class="card-image">
+                <img src="/Images/chair2.jpg" alt="" />
+              </div>
+              <div class="card-details">
+                <div class="card-name">MALM Bed</div>
+                <div class="card-price">$450.99</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-image">
+                <img
+                  src="/Images/hauga-upholstered-bed-frame-vissle-grey__1101343_pe866605_s5.avif"
+                  alt=""
+                />
+              </div>
+              <div class="card-details">
+                <div class="card-name">Modern Chair</div>
+                <div class="card-price">120.99</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

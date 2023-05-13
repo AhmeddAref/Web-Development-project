@@ -145,6 +145,7 @@ label {
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
 }
 .checkout {
+  text-decoration: none;
   float: right;
   border: 0;
   margin-top: 20px;
