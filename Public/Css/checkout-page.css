@@ -13,10 +13,10 @@ body {
   background-color: #eae7dc;
 }
 body header {
-  height: 5%;
   margin-bottom: 30px;
 }
 body header > h3 {
+  margin-top: 30px;
   font-size: 25px;
   color: #4e5150;
   font-weight: 500;

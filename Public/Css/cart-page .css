@@ -1,3 +1,6 @@
+body {
+  background-color: #eae7dc;
+}
 .product-image-cart {
   float: left;
   width: 20%;
@@ -150,7 +153,7 @@ label {
   border: 0;
   margin-top: 20px;
   padding: 6px 25px;
-  background-color: #6b6;
+  background-color: #e85a4f;
   color: #fff;
   font-size: 25px;
   border-radius: 3px;
