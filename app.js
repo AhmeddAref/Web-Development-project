@@ -73,7 +73,7 @@ app.get("/category.ejs", function (req, res) {
 app.get("/Product-page.ejs", function (req, res) {
   res.render("Product-page");
 });
-app.get("/cartpage.ejs", function (req, res) {
+app.get("/cart-page.ejs", function (req, res) {
   res.render("cart-page");
 });
 app.get("/category.ejs", function (req, res) {
