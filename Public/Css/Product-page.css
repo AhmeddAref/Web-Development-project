@@ -172,6 +172,7 @@ img {
     grid-gap: 1.5rem;
   }
   .card-wrapper {
+    margin-top: 5%;
     height: 100vh;
     display: flex;
     justify-content: center;
