@@ -120,27 +120,17 @@
       <section class="checkout-details">
         <div class="checkout-details-inner">
           <div class="checkout-lists">
+            <% cart.items.forEach((item) => { %>
             <div class="card">
               <div class="card-image">
-                <img src="/Images/chair2.jpg" alt="" />
+                <img src="<%= item.image %>" alt="" />
               </div>
               <div class="card-details">
-                <div class="card-name">MALM Bed</div>
-                <div class="card-price">$450.99</div>
+                <div class="card-name"><%= item.title %></div>
+                <div class="card-price">$<%= item.price %></div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-image">
-                <img
-                  src="/Images/hauga-upholstered-bed-frame-vissle-grey__1101343_pe866605_s5.avif"
-                  alt=""
-                />
-              </div>
-              <div class="card-details">
-                <div class="card-name">Modern Chair</div>
-                <div class="card-price">120.99</div>
-              </div>
-            </div>
+            <% }) %>
           </div>
         </div>
       </section>

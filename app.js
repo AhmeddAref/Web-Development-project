@@ -125,5 +125,5 @@ app.get("/category.ejs", function (req, res) {
   res.render("category");
 });
 app.get("/checkout-page.ejs", function (req, res) {
-  res.render("checkout-page");
+  res.render("checkout-page", { cart: cart });
 });
