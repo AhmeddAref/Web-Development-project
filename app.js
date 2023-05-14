@@ -1,10 +1,18 @@
 import express from "express";
+import session from "express-session";
 
 const app = express();
 
 app.listen(9999);
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(
+  session({
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 //-------------------------------------------//
 const cat = [
@@ -118,26 +126,57 @@ const prod = {
 };
 
 //-----------------------------------//
-
-app.get("/", function (req, res) {
-  res.render("index", { cat: cat, offers: offers, slides: slides });
+app.get("/signin", (req, res) => {
+  if (req.query.Email === "omar@gmail.com") {
+    req.session.isLoggedIn = true;
+    req.session.Email = req.query.Email;
+    res.redirect("/");
+  } else {
+    res.redirect("/form.ejs");
+  }
 });
+
+app.get("/signout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/");
+});
+
+app.get("/", (req, res) => {
+  res.render("index", {
+    cat: cat,
+    offers: offers,
+    slides: slides,
+    Email: req.session.Email === undefined ? "" : req.session.Email,
+  });
+});
+
 app.get("/form.ejs", function (req, res) {
-  res.render("form");
+  res.render("form", {
+    Email: req.session.Email === undefined ? "" : req.session.Email,
+  });
 });
 
 app.get("/category.ejs", function (req, res) {
-  res.render("category");
+  res.render("category", {
+    Email: req.session.Email === undefined ? "" : req.session.Email,
+  });
 });
 app.get("/Product-page.ejs", function (req, res) {
-  res.render("Product-page", { prod: prod });
+  res.render("Product-page", {
+    prod: prod,
+    Email: req.session.Email === undefined ? "" : req.session.Email,
+  });
 });
 app.get("/cart-page.ejs", function (req, res) {
-  res.render("cart-page", { cart: cart });
+  res.render("cart-page", {
+    cart: cart,
+    Email: req.session.Email === undefined ? "" : req.session.Email,
+  });
 });
-app.get("/category.ejs", function (req, res) {
-  res.render("category");
-});
+
 app.get("/checkout-page.ejs", function (req, res) {
-  res.render("checkout-page", { cart: cart });
+  res.render("checkout-page", {
+    cart: cart,
+    Email: req.session.Email === undefined ? "" : req.session.Email,
+  });
 });

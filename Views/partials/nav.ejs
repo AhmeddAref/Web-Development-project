@@ -64,8 +64,17 @@
         <!-- profile button -->
         <div>
           
+          <% if(Email==="" ) {%>
             <a href="/form.ejs"><button class="btn-signin">Sign in</button></a>
-         <!-- <a href=""><button class="userbtn"> <i class="fa fa-user" style="font-size:30px;"></i> </button></a>         -->
+            <% }else { %>
+              <a href="/signout"><button class="btn-signin">Sign Out</button></a>
+              <a href=""><button class="userbtn"> <i class="fa fa-user" style="font-size:30px;"></i> </button></a>        
+      
+              
+              <% } %>
+          
+          
+    
          </div>
         <!-- cart button -->
       <div>
