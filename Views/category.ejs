@@ -26,14 +26,24 @@ function myFunction() {
         </div>
       </div>
       <hr>
-    <div class="products">
-    <div class="product" role="button" onclick="location.href='Product-page.html'"">
-        <img src="../images/malm-bed-frame-high-black-brown__1101514_pe866693_s5.avif" alt="">
-        <h3 class="pname">MALM</h3>
-        <P class="price">EGP 8,000</P>
+      <div class="products">
+      <% if (beds.length> 0) { %>
+      <% beds.forEach(bed=> { %>
+    <div class="product" role="button" onclick="location.href='Product-page.ejs'">
+        <img src="<%= bed.imageUrl %>" alt="">
+        <h3 class="pname"><%= bed.name %></h3>
+        <P class="price">EGP <%= bed.price %></P>
         <hr>
         <button class="addtocart" type="button" name="addtocaart" onclick="">Add to cart</button>
     </div>
+    <% }) %>
+    <% } else { %>
+      <p>There are no beds to display...</p>
+      <% } %>
+    </div>   
+</body>
+</html>
+     <!--
     <div class="product" role="button" onclick="location.href='Product-page.html'">
         <img src="../images/hauga-upholstered-bed-frame-vissle-grey__1101343_pe866605_s5.avif" alt="">
         <h3 class="pname">HAUGA</h3>
@@ -62,8 +72,6 @@ function myFunction() {
     <hr>
     <button class="addtocart" type="button" name="addtocaart" onclick="">Add to cart</button>
     </div>
-</div>   
-
-
+  -->  
 </body>
 </html>
