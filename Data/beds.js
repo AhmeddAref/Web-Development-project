@@ -6,4 +6,4 @@ const beds = [
     { id: "5", name: "TYSSEDAL", price: "20,495", imageUrl: "/images/tyssedal-bed-frame-white-loenset__1102016_pe866840_s5.avif" }
   ];
 
-  export default  categories;
+  export default  beds;

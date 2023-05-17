@@ -1,6 +1,6 @@
 import { Router } from "express";
 import categories from "../Data/categories.js";
-import beds from "../Data/cat.js";
+import beds from "../Data/beds.js";
 
 var router = Router();
 
