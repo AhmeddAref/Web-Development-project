@@ -193,11 +193,6 @@ app.get("/form.ejs", function (req, res) {
   });
 });
 
-app.get("/category.ejs", function (req, res) {
-  res.render("category", {
-    Email: req.session.Email === undefined ? "" : req.session.Email,
-  });
-});
 app.get("/Product-page.ejs", function (req, res) {
   res.render("Product-page", {
     prod: prod,
