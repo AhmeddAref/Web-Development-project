@@ -1,32 +1,3 @@
-node_modules/*
-Skip to content
-Product
-Solutions
-Open Source
-Pricing
-Search
-Sign in
-Sign up
-essam-eliwa
-/
-mongo
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-mongo/.gitignore
-@essam-eliwa
-essam-eliwa ignore all files starting with .
-Latest commit b3c7e69 2 days ago
- History
- 1 contributor
-32 lines (25 sloc)  435 Bytes
- 
-
 # Logs
 logs
 *.log

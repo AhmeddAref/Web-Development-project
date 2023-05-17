@@ -8,10 +8,6 @@
     <link rel="stylesheet" href="../Css/adminPage.css" />
     <link rel="stylesheet" href="../Css/Homepage.css" />
     <!-- search icon  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
   </head>
   <body>
     <main class="container">
@@ -25,128 +21,402 @@
           <span class="name">@georgechond</span>
         </div>
         <nav class="primary">
-          <a href="#" class="menu-item active">
-            <span class="iconoir-report-columns"></span>
-            <span class="desc">Dashboard</span>
-          </a>
-          <a href="#" class="menu-item">
-            <span class="iconoir-google-docs"></span>
-            <span class="desc">Reports</span>
-          </a>
-          <a href="#" class="menu-item">
-            <span class="iconoir-table"></span>
-            <span class="desc">Stats</span>
-          </a>
-          <a href="#" class="menu-item">
-            <span class="iconoir-bag"></span>
-            <span class="desc">Cart</span>
-          </a>
-          <a href="#" class="menu-item">
-            <span class="iconoir-user"></span>
-            <span class="desc">Clients</span>
-          </a>
-          <a href="#" class="menu-item">
-            <span class="iconoir-leaderboard"></span>
-            <span class="desc">Analytics</span>
-          </a>
-          <a href="#" class="menu-item">
-            <span class="iconoir-settings"></span>
-            <span class="desc">Settings</span>
-          </a>
+          
+          <button id="btn-1" class="menu-item active">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">Products</span>
+        </button>
+       
+        <button id="btn-2" class="menu-item ">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">Category</span>
+        </button>
+
+
+        <button id="btn-3" class="menu-item ">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">Offers</span>
+        </button>
+        <button id="btn-4" class="menu-item ">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">About Us</span>
+        </button>
+        <button id="btn-5" class="menu-item ">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">Users</span>
+        </button>
+        <button id="btn-6" class="menu-item ">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">Analytics</span>
+        </button>
+        <button id="btn-7" class="menu-item ">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">Settings</span>
+        </button>
         </nav>
         <span class="expander iconoir-arrow-right"></span>
       </div>
       <div class="topbar">
-        <h1 class="current">Dashboard</h1>
+        <h1 class="current">Admin dashboard</h1>
         <span class="search">
           <label><span class="iconoir-search"></span></label>
           <input class="bar" type="text" placeholder="Search..." />
         </span>
         <nav>
-          <a href="#" class="menu-item">Orders</a>
-          <a href="#" class="menu-item">Clients</a>
-          <a href="#" class="menu-item">Sections</a>
-          <a href="#" class="menu-item">Products</a>
+          <button id="btn-3" class="menu-item ">
+            <span class="iconoir-report-columns"></span>
+            <span class="desc">View website</span>
+          </button>
+          
         </nav>
       </div>
       <div class="dashboard">
-        <div class="cardcolumn">
-          <div class="card">
-            <header>
-              <a class="title" href="#"></a>
-              <span class="iconoir-more-vert"></span>
-            </header>
-            <div class="content"></div>
-            <div class="meta">
-              <span class="iconoir-pin"></span>
-              <span class="iconoir-eye-off"></span>
-              <span class="iconoir-share-ios"></span>
+       
+        <section id="section1" class="section">
+          
+          
+        
+           
+
+            <div class="add" id="form">
+              <form class="mt-5">
+                <div class="mb-3">
+                  <label for="UrunID" class="form-label">Product Name:</label>
+                  <br>
+                  <input
+                    type="text"
+                    class="desc1"
+                    id="UrunID"
+                    aria-describedby=""
+                    required
+                  />
+                </div>
+                
+                <div class="mb-3">
+                  <label for="UrunID" class="form-label">Product description:</label>
+                  <br>
+                  <input
+                    type="text"
+                    class="desc1"
+                    id="UrunID"
+                    aria-describedby=""
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="UrunAdi" class="desc2">Colors available:</label>
+                  <div id="list1" class="dropdown-check-list" tabindex="100">
+                    <span class="anchor">Select color/s</span>
+                    <ul class="items">
+                      <li><input type="checkbox" />Red </li>
+                      <li><input type="checkbox" />Orange</li>
+                      <li><input type="checkbox" />Blue </li>
+                      <li><input type="checkbox" />White </li>
+                      <li><input type="checkbox" />Black </li>
+                      <li><input type="checkbox" />Grey </li>
+                      <li><input type="checkbox" />Pink</li>
+                      <li><input type="checkbox" />Magenta</li>
+                      <li><input type="checkbox" />Turquase</li>
+                      <li><input type="checkbox" />Off-white</li>
+                      <li><input type="checkbox" />Green</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="UrunMiktar"
+                    >Stock Quantity:</label
+                  >
+                  <br>
+                  <input
+                    type="number"
+                    class="desc1"
+                    id="UrunMiktar"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="Kategori" class="form-label"
+                    >Product Category:</label
+                  >
+                  <br>
+                  <select
+                    name="Kategori"
+                    id="Kategori"
+                    class="desc1"
+                    required
+                  >
+                    <option></option>
+                    <option value="Elektronik">Modern</option>
+                    <option value="Giyim">Classic</option>
+                    <option value="Kirtasiye">Old school</option>
+                    <option value="Yiyecek">Electronic</option>
+                    
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="Kategori" class="form-label"
+                    >Shipping area:</label
+                  >
+                  <br>
+                  <select
+                    name="Kategori"
+                    id="Kategori"
+                    class="desc1"
+                    required
+                  >
+                    <option></option>
+                    <option value="Elektronik">All over Egypt</option>
+                    <option value="Giyim">Cairo</option>
+                    <option value="Kirtasiye">Alexandria</option>
+                    <option value="Yiyecek">Giza</option>
+                    
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="Kategori" class="form-label"
+                    >Shipping fees:</label
+                  >
+                  <br>
+                  <input 
+                  type="number"
+                  class="desc1"
+                  id="UrunMiktar"
+                  required
+                />
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="Kategori" class="form-label"
+                    >Old price:</label
+                  >
+                  <br>
+                  <input
+                  type="number"
+                  class="desc1"
+                  id="UrunMiktar"
+                  required
+                />
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="Kategori" class="form-label"
+                    >New price: </label
+                  >
+                  <br>
+                  <input
+                  type="number"
+                  class="desc1"
+                  id="UrunMiktar"
+                  required
+                />
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="UrunImage" class="form-label"
+                    >Product Image:</label
+                  >
+                  <br>
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    name="UrunImage"
+                    id="UrunImage"
+                  />
+                  <br>
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    name="UrunImage"
+                    id="UrunImage"
+                  />
+                  <br>
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    name="UrunImage"
+                    id="UrunImage"
+                  />
+                  <br>
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    name="UrunImage"
+                    id="UrunImage"
+                  />
+                </div>
+                <br>
+                <div class="mt-4">
+                  
+                  
+                </div>
+                <div class="btndiv">
+                  <button
+                    type="submit"
+                    class="btnn"
+                    id="ekleButton"
+                  >
+                    Add product
+                  </button>
+                  <button
+                    type="submit"
+                    class="btnn"
+                    id="ekleButton"
+                  >
+                    Upgrade product
+                  </button>
+                </div>
+              </form>
             </div>
-          </div>
-          <div class="card">
-            <header>
-              <a class="title" href="#"></a>
-              <span class="iconoir-more-vert"></span>
-            </header>
-            <div class="content"></div>
-            <div class="meta">
-              <span class="iconoir-pin"></span>
-              <span class="iconoir-eye-off"></span>
-              <span class="iconoir-share-ios"></span>
+        
+         
+        </section>
+
+        <!-- ----------Categories---------- -->
+        <section id="section2" class="section">
+          
+        
+        
+        
+            <div class="add" id="form">
+              <form class="mt-5">
+                <div class="mb-3">
+                  <label for="UrunID" class="form-label">Category Name:</label>
+                  <input
+                    type="text"
+                    class="desc1"
+                    id="UrunID"
+                    aria-describedby=""
+                    required
+                  />
+                </div>
+        
+                <div class="mb-3">
+                  <label for="UrunImage" class="form-label"
+                    >Category Image:</label
+                  >
+                  
+                  <input
+                    type="file"
+                    class="form-control"
+                    name="UrunImage"
+                    id="UrunImage"
+                  />
+                  <br>
+                </div>
+                <div class="mt-4">
+        
+        
+                </div>
+                <div class="btndiv">
+                  <button
+                    type="submit"
+                    class="btnn"
+                    id="ekleButton"
+                  >
+                    Add Category
+                  </button>
+                  <button
+                    type="submit"
+                    class="btnn"
+                    id="ekleButton"
+                  >
+                    Upgrade Category
+                  </button>
+                </div>
+              </form>
             </div>
-          </div>
-        </div>
-        <div class="cardcolumn">
-          <div class="card">
-            <header>
-              <a class="title" href="#"></a>
-              <span class="iconoir-more-vert"></span>
-            </header>
-            <div class="content"></div>
-            <div class="meta">
-              <span class="iconoir-pin"></span>
-              <span class="iconoir-eye-off"></span>
-              <span class="iconoir-share-ios"></span>
+      
+        
+        </section>
+        <!----------------Offers------------------->
+
+        <section id="section3" class="section">
+          
+        
+           
+
+            <div class="add" id="form">
+              <form class="mt-5">
+                <div class="mb-3">
+                  <label for="UrunID" class="form-label">Product Name:</label>
+                  <input
+                    type="text"
+                    class="desc1"
+                    id="UrunID"
+                    aria-describedby=""
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="UrunID" class="form-label">Product description:</label>
+                  <input
+                    type="text"
+                    class="desc1"
+                    id="UrunID"
+                    aria-describedby=""
+                    required
+                  />
+                </div>
+               
+                
+                
+               
+                <div class="mb-3">
+                  <label for="Kategori" class="form-label"
+                    >Old price:</label
+                  >
+                    
+                  <input
+                  type="number"
+                  class="desc1"
+                  id="UrunMiktar"
+                  required
+                />
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="Kategori" class="form-label"
+                    >New price: </label
+                  >
+                    
+                  <input
+                  type="number"
+                  class="desc1"
+                  id="UrunMiktar"
+                  required
+                />
+                  </select>
+                  
+                </div>
+                
+                <div class="mt-4">
+                  
+                  
+                </div>
+                <br>
+                <div class="btndiv">
+                  <button
+                    type="submit"
+                    class="btnn"
+                    id="ekleButton"
+                  >
+                    Add Offer
+                  </button>
+                  <button
+                    type="submit"
+                    class="btnn"
+                    id="ekleButton"
+                  >
+                    Upgrade Offer
+                  </button>
+                </div>
+              </form>
             </div>
-          </div>
-          <div class="card">
-            <header>
-              <a class="title" href="#"></a>
-              <span class="iconoir-more-vert"></span>
-            </header>
-            <div class="content"></div>
-            <div class="meta">
-              <span class="iconoir-pin"></span>
-              <span class="iconoir-eye-off"></span>
-              <span class="iconoir-share-ios"></span>
-            </div>
-          </div>
-        </div>
-        <div class="cardcolumn">
-          <div class="card">
-            <header>
-              <a class="title" href="#"></a>
-              <span class="iconoir-more-vert"></span>
-            </header>
-            <div class="content"></div>
-            <div class="meta">
-              <span class="iconoir-pin"></span>
-              <span class="iconoir-eye-off"></span>
-              <span class="iconoir-share-ios"></span>
-            </div>
-          </div>
-          <div class="card">
-            <header>
-              <a class="title" href="#"></a>
-              <span class="iconoir-more-vert"></span>
-            </header>
-            <div class="content"></div>
-            <div class="meta">
-              <span class="iconoir-pin"></span>
-              <span class="iconoir-eye-off"></span>
-              <span class="iconoir-share-ios"></span>
-            </div>
-          </div>
+        
+         
+        </section>
+        <!--------------->
+
         </div>
       </div>
       <div class="side">
@@ -182,6 +452,8 @@
         </div>
       </div>
     </main>
+
+  
 
     <script src="../Js/adminpage.js"></script>
   </body>

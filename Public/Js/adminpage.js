@@ -8,12 +8,6 @@ const weatherContent = document.querySelector(".side .weather .content");
 const date = document.querySelector("main .side .date");
 const time = document.querySelector("main .side .time");
 
-// Fix :active touch on mobiles
-document.addEventListener("touchstart", () => {}, true);
-
-// Search Expand
-search.addEventListener("click", () => container.classList.toggle("search"));
-
 // Main Menu
 menuItems.forEach((item) => {
   item.addEventListener("click", () => {
@@ -72,5 +66,36 @@ const weatherData = async () => {
   }
 };
 
-dummyData();
 weatherData();
+
+var btn1 = document.getElementById("btn-1");
+var btn2 = document.getElementById("btn-2");
+var btn3 = document.getElementById("btn-3");
+var section1 = document.getElementById("section1");
+var section2 = document.getElementById("section2");
+var section3 = document.getElementById("section3");
+
+btn1.addEventListener("click", () => {
+  section1.style.display = "block";
+  section2.style.display = "none";
+  section3.style.display = "none";
+});
+
+btn2.addEventListener("click", () => {
+  section1.style.display = "none";
+  section2.style.display = "block";
+  section3.style.display = "none";
+});
+
+btn3.addEventListener("click", () => {
+  section1.style.display = "none";
+  section2.style.display = "none";
+  section3.style.display = "block";
+});
+
+var checkList = document.getElementById("list1");
+checkList.getElementsByClassName("anchor")[0].onclick = function (evt) {
+  if (checkList.classList.contains("visible"))
+    checkList.classList.remove("visible");
+  else checkList.classList.add("visible");
+};
