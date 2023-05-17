@@ -73,5 +73,29 @@ function removeItem(removeButton) {
   var productRow = removeButton.parentElement.parentElement;
   productRow.style.display = "none";
   productRow.parentNode.removeChild(productRow);
-  recalculateCart();
+
+  var itemName = productRow.querySelector(".product-title").innerText;
+  var itemPrice = parseFloat(
+    productRow.querySelector(".product-price").innerText
+  );
+
+  fetch("/remove-item", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title: itemName, price: itemPrice }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        recalculateCart();
+        return response.json();
+      } else {
+        throw new Error("Failed to remove item from the server.");
+      }
+    })
+    .then((data) => {})
+    .catch((error) => {
+      console.error(error);
+    });
 }

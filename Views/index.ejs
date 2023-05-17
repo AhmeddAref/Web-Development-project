@@ -59,11 +59,7 @@
       <section id="Offers">
         <div class="product-container">
           <% offers.forEach(product => { %>
-          <div
-            class="product-card"
-            role="button"
-            onclick="location.href='/Product-page.ejs'"
-          >
+          <div class="product-card" role="button">
             <img
               src="<%= product.image %>"
               alt="<%= product.name %>"

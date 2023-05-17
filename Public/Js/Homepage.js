@@ -74,4 +74,43 @@ var docWidth = document.documentElement.offsetWidth;
   }
 });
 
-//---------------------------offers slider--------------------------//
+//---------------------------add to cart--------------------------//
+var cartbtn = document.getElementsByClassName("add-to-cart-button");
+for (var i = 0; i < cartbtn.length; i++) {
+  var btn = cartbtn[i];
+
+  btn.addEventListener("click", (event) => {
+    var clickedBtn = event.target;
+    var item = clickedBtn.parentElement;
+
+    var title = item.getElementsByClassName("product-name")[0].innerText;
+    var price = item.getElementsByClassName("discount-price")[0].innerText;
+    var description = item.getElementsByClassName("product-description")[0]
+      .innerText;
+
+    var imgsrc = item.getElementsByClassName("product-image")[0].src;
+
+    const data = {
+      image: imgsrc,
+      title: title,
+      description: description,
+      price: price,
+      quantity: 1,
+    };
+
+    fetch("/save-data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        // Handle the response from the server if needed
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the request
+        console.error("Error:", error);
+      });
+  });
+}

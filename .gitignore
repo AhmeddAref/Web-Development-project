@@ -1,1 +1,76 @@
 node_modules/*
+Skip to content
+Product
+Solutions
+Open Source
+Pricing
+Search
+Sign in
+Sign up
+essam-eliwa
+/
+mongo
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+mongo/.gitignore
+@essam-eliwa
+essam-eliwa ignore all files starting with .
+Latest commit b3c7e69 2 days ago
+ History
+ 1 contributor
+32 lines (25 sloc)  435 Bytes
+ 
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# ignore video files
+*.mp4
+
+# ignore all files starting with . or ~
+.*
+~*
+
+# ignore .DS_Store
+.DS_Store
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules/
+
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+mongo/.gitignore at main · essam-eliwa/mongo · GitHub
