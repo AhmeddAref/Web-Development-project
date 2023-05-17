@@ -33,7 +33,7 @@ function myFunction() {
       <div class="products">
       <% if (beds.length> 0) { %>
       <% beds.forEach(bed=> { %>
-    <div class="product" role="button" onclick="location.href='Product-page.ejs'">
+    <div class="product" role="button" onclick="location.href='/Product-page'">
         <img src="<%= bed.imageUrl %>" alt="">
         <h3 class="pname"><%= bed.name %></h3>
         <P class="price">EGP <%= bed.price %></P>
@@ -48,35 +48,7 @@ function myFunction() {
       
 </body>
 </html>
-     <!--
-    <div class="product" role="button" onclick="location.href='Product-page.html'">
-        <img src="../images/hauga-upholstered-bed-frame-vissle-grey__1101343_pe866605_s5.avif" alt="">
-        <h3 class="pname">HAUGA</h3>
-        <P class="price">EGP 7,500</P>
-        <hr>
-        <button class="addtocart" type="button" name="addtocaart" onclick="">Add to cart</button>
-    </div>
-    <div class="product" role="button" onclick="location.href='Product-page.html'">
-      <img src="../images/hauga-upholstered-bed-frame-vissle-grey__1101343_pe866605_s5.avif" alt="">
-      <h3 class="pname">HAUGA</h3>
-      <P class="price">EGP 7,500</P>
-      <hr>
-      <button class="addtocart" type="button" name="addtocaart" onclick="">Add to cart</button>
-  </div>
-  <div class="product" role="button" onclick="location.href='Product-page.html'">
-    <img src="../images/hauga-upholstered-bed-frame-vissle-grey__1101343_pe866605_s5.avif" alt="">
-    <h3 class="pname">HAUGA</h3>
-    <P class="price">EGP 7,500</P>
-    <hr>
-    <button class="addtocart" type="button" name="addtocaart" onclick="">Add to cart</button>
-  </div>
-    <div class="product" role="button" onclick="location.href='Product-page.html'">
-      <img src="../images/hauga-upholstered-bed-frame-vissle-grey__1101343_pe866605_s5.avif" alt="">
-      <h3 class="pname">HAUGA</h3>
-      <P class="price">EGP 7,500</P>
-    <hr>
-    <button class="addtocart" type="button" name="addtocaart" onclick="">Add to cart</button>
-    </div>
+   
   -->  
 </body>
 </html>

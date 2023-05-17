@@ -38,7 +38,7 @@
       <section id="categories">
         <div class="section-text">
           <h1></h1>
-          <a class="our_text" href="/category.ejs"><h2>Our categories</h2></a>
+          <a class="our_text" href="/category"><h2>Our categories</h2></a>
           <p class="_text">Explore our wide range of products</p>
         </div>
         <div class="accordian">
@@ -46,9 +46,9 @@
             <% cat.forEach(catItem => { %>
             <li>
               <div class="image_title">
-                <a href="/category.ejs"><%= catItem.name %></a>
+                <a href="/category"><%= catItem.name %></a>
               </div>
-              <a href="/category.ejs">
+              <a href="/category">
                 <img class="myimg" src="<%= catItem.imageUrl %>" />
               </a>
             </li>
