@@ -3,9 +3,9 @@ body {
 }
 .dropbtn {
   padding: 15px 25px;
-  margin: 10px;
-  margin-top: 50px;
-  margin-left: 20px;
+  margin-top: 60px;
+  margin-bottom: 8px;
+  margin-left: 10px;
   border-radius: 20px;
   z-index: 1;
   background: rgb(46, 44, 44);
