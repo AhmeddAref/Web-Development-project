@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/Css/category.css">
- 
-
     
 <script>
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 </script>
+
 </head>
+
 <body>
+
     <%- include("./partials/nav.ejs") %>
       <div class="dropdown">
         <button onclick="myFunction()" class="dropbtn">PRODUCTS</button>
         <div id="myDropdown" class="dropdown-content">
-          <a href="">BEDS</a>
-          <a href="">TABLES</a>
-          <a href="">CHAIRS</a>
+        <% categories.forEach(cat=> { %>
+          <a href=""><%= cat.name %></a>
+        <% }) %>
         </div>
       </div>
+
       <hr>
+
       <div class="products">
       <% if (beds.length> 0) { %>
       <% beds.forEach(bed=> { %>
@@ -40,7 +44,8 @@ function myFunction() {
     <% } else { %>
       <p>There are no beds to display...</p>
       <% } %>
-    </div>   
+    </div> 
+      
 </body>
 </html>
      <!--

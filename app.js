@@ -138,6 +138,13 @@ const prod = {
   newPrice: "$2490.00 (5%)",
 };
 //-----------------------------------//
+const categories = [
+  { name: "Beds & mattresses" },
+  { name: "Furniture" },
+  { name: "Decoration" },
+  { name: "Kitchen & appliances" },
+  { name: "Bathroom products" }
+];
 
 const beds = [
   { id: "1", name: "MALM", price: "8,895", imageUrl: "/images/malm-bed-frame-high-black-brown__1101514_pe866693_s5.avif" },
@@ -150,6 +157,7 @@ const beds = [
 app.get("/category.ejs", function (req, res) {
   res.render("category", {
     beds: beds,
+    categories: categories,
     Email: req.session.Email === undefined ? "" : req.session.Email,
   });
 });
