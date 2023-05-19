@@ -1,5 +1,7 @@
 import express from "express";
 import session from "express-session";
+
+import cart from "./Data/cart.js";
 import index_router from "./routes/index.js";
 import Admin_router from "./routes/Admin-page.js";
 import cart_router from "./routes/cart-page.js";
@@ -10,6 +12,9 @@ import form_router from "./routes/form.js";
 import product_router from "./routes/product-page.js";
 
 const app = express();
+
+
+
 app.use("/", index_router);
 app.use("/Admin-page", Admin_router);
 app.use("/cart-page", cart_router);
@@ -18,7 +23,7 @@ app.use("/checkout-page", checkout_router);
 app.use("/form", form_router);
 app.use("/product-page", product_router);
 
-app.listen(9999);
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
@@ -73,17 +78,17 @@ app.post("/remove-item", (req, res) => {
 //-------------------------------------------//
 
 
-app.get("/category.ejs", function (req, res) {
-  res.render("category", {
-   
-  });
+
+
+app.get("/signin", (req, res) => {
+  if (req.query.Email === "omar@gmail.com") {
+    req.session.isLoggedIn = true;
+    req.session.Email = req.query.Email;
+    res.redirect("/");
+  } else {
+    res.redirect("/form.ejs");
+  }
 });
-
-
-
-
-
-//-----------------------------------//
 
 app.get("/signout", (req, res) => {
   req.session.destroy();

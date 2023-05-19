@@ -7,7 +7,7 @@ var router = Router();
 router.get("/", function (req, res, next) {
   res.render("Product-page", {
     prod: prod,
-    // Email: req.session.Email === undefined ? "" : req.session.Email,
+    Email: req.session && req.session.Email !== undefined ? req.session.Email : "",
   });
 });
 

@@ -10,7 +10,7 @@ router.get("/", function (req, res, next) {
     beds: beds,
     categories: categories,
  
-    // Email: req.session.Email === undefined ? "" : req.session.Email,
+    Email: req.session && req.session.Email !== undefined ? req.session.Email : "",
   });
 });
 

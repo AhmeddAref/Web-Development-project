@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import cat from "../Data/cat.js";
 import offers from "../Data/offers.js";
 import slides from "../Data/slides.js";
@@ -12,7 +13,9 @@ router.get("/", function (req, res, next) {
     cat: cat,
     offers: offers,
     slides: slides,
-    // Email: req.session.Email === undefined ? "" : req.session.Email,
+   
+    Email: req.session && req.session.Email !== undefined ? req.session.Email : "",
+  
   });
 });
 
