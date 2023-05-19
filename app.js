@@ -1,6 +1,7 @@
 import express from "express";
 import session from "express-session";
-
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 import cart from "./Data/cart.js";
 import index_router from "./routes/index.js";
 import Admin_router from "./routes/Admin-page.js";
@@ -8,12 +9,29 @@ import cart_router from "./routes/cart-page.js";
 import category_router from "./routes/category.js";
 import checkout_router from "./routes/chechout-page.js";
 import form_router from "./routes/form.js";
-
 import product_router from "./routes/product-page.js";
+import users from "./models/users.js";
 
 const app = express();
 
+const dbURI = "mongodb+srv://OmarHosny18:i6EsIoO2Dd5Naob7@cluster0.bmkpjny.mongodb.net/project?retryWrites=true&w=majority";
+mongoose.connect(dbURI)
+  .then(result => app.listen(9999))
+  .catch(err => console.log(err));
 
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.json());
+
+app.use(
+  session({
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use("/", index_router);
 app.use("/Admin-page", Admin_router);
@@ -26,15 +44,10 @@ app.use("/product-page", product_router);
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.json());
-app.use(
-  session({
-    secret: "your-secret-key",
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+
 
 //-------------------------------------------//
 
@@ -80,17 +93,46 @@ app.post("/remove-item", (req, res) => {
 
 
 
-app.get("/signin", (req, res) => {
-  if (req.query.Email === "omar@gmail.com") {
-    req.session.isLoggedIn = true;
-    req.session.Email = req.query.Email;
-    res.redirect("/");
-  } else {
-    res.redirect("/form.ejs");
-  }
+
+app.post('/signin', (req, res) => {
+  var email = req.body.Email;
+  var password = req.body.password;
+ 
+  users.findOne({ email: email, password: password })
+    .then(result => {
+      if (result) {
+        req.session.Email = email;
+       
+        res.redirect('/'); 
+      } else {
+        res.redirect('/form?error=Invalid information. Please try again.');
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).send('Internal Server Error');
+    });
 });
+
 
 app.get("/signout", (req, res) => {
   req.session.destroy();
   res.redirect("/");
+});
+app.post("/signup", (req, res) => {
+  const user = new users({
+    name: req.body.fullname,
+    email: req.body.email,
+    phonenumber: req.body.phone,
+    password: req.body.password,
+    Type: req.body.type
+  });
+  
+  user.save()
+    .then(result => {
+      res.redirect('/form');
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
