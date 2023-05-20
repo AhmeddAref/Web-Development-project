@@ -74,8 +74,12 @@
        
         <section id="section1" class="section">
           
+          
+        
+           
+
             <div class="add" id="form">
-              <form class="mt-5"  action="/add-product" method="post" name="form"></form>>
+              <form class="mt-5">
                 <div class="mb-3">
                   <label for="UrunID" class="form-label">Product Name:</label>
                   <br>
@@ -83,7 +87,6 @@
                     type="text"
                     class="desc1"
                     id="UrunID"
-                    name="name"
                     aria-describedby=""
                     required
                   />
@@ -96,7 +99,6 @@
                     type="text"
                     class="desc1"
                     id="UrunID"
-                    name="description"
                     aria-describedby=""
                     required
                   />
@@ -128,7 +130,7 @@
                     </ul>
                   </div> -->
                 </div>
-                <!-- <div class="mb-3">
+                <div class="mb-3">
                   <label class="form-label" for="UrunMiktar"
                     >Stock Quantity:</label
                   >
@@ -139,7 +141,7 @@
                     id="UrunMiktar"
                     required
                   />
-                </div> -->
+                </div>
                 <div class="mb-3">
                   <label for="Kategori" class="form-label"
                     >Product Category:</label
@@ -149,7 +151,6 @@
                     name="Kategori"
                     id="Kategori"
                     class="desc1"
-                    name="category"
                     required
                   >
                     <option></option>
@@ -169,7 +170,6 @@
                     name="Kategori"
                     id="Kategori"
                     class="desc1"
-                    name="area"
                     required
                   >
                     <option></option>
@@ -180,7 +180,19 @@
                     
                   </select>
                 </div>
-                
+                <!-- <div class="mb-3">
+                  <label for="Kategori" class="form-label"
+                    >Shipping fees:</label
+                  >
+                  <br>
+                  <input 
+                  type="number"
+                  class="desc1"
+                  id="UrunMiktar"
+                  required
+                />
+                  </select>
+                </div> -->
                 <div class="mb-3">
                   <label for="Kategori" class="form-label"
                     >Old price:</label
@@ -190,7 +202,6 @@
                   type="number"
                   class="desc1"
                   id="UrunMiktar"
-                  name="old-price"
                   required
                 />
                   </select>
@@ -204,7 +215,6 @@
                   type="number"
                   class="desc1"
                   id="UrunMiktar"
-                  name="new-price"
                   required
                 />
                   </select>
@@ -217,28 +227,28 @@
                   <input
                     type="file"
                     class="custom-file-input"
-                    name="UrunImage1"
+                    name="UrunImage"
                     id="UrunImage"
                   />
                   <br>
                   <input
                     type="file"
                     class="custom-file-input"
-                    name="UrunImage2"
+                    name="UrunImage"
                     id="UrunImage"
                   />
                   <br>
                   <input
                     type="file"
                     class="custom-file-input"
-                    name="UrunImage3"
+                    name="UrunImage"
                     id="UrunImage"
                   />
                   <br>
                   <input
                     type="file"
                     class="custom-file-input"
-                    name="UrunImage4"
+                    name="UrunImage"
                     id="UrunImage"
                   />
                 </div>

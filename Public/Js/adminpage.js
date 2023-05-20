@@ -39,19 +39,6 @@ date.innerText = `${today.getDate()} ${
 }, ${today.getFullYear()}`;
 time.innerText = `${today.getHours()}:${formatZero(today.getMinutes())}`;
 
-// Populate News
-const dummyData = () => {
-  mainCards.forEach((card, i) => {
-    card.querySelector(".title").innerText =
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-    card.querySelector(".content").innerText =
-      "Aliquam vitae laoreet purus. Vivamus tincidunt nibh rhoncus, varius libero dignissim, molestie odio. Aenean sit amet felis et lectus viverra elementum. In quis tortor dignissim, ultrices odio et, dignissim quam. Donec scelerisque lacinia dolor, a pulvinar enim auctor quis. Sed mollis faucibus lacus id sagittis. Nunc et fringilla ipsum, et dignissim erat. Vivamus leo lorem, iaculis tempor quam nec, malesuada ullamcorper ipsum...".slice(
-        0,
-        Math.round(Math.random() * -200)
-      );
-  });
-};
-
 // Weather Data for Athens from open-meteo.com
 const weatherData = async () => {
   const weather =
