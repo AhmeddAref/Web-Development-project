@@ -11,7 +11,7 @@ const prod = {
   Available: "in stock",
   Category: "Modern chair",
   Shipping_Area: "All over the world",
-  Shipping_Fee: "Free",
+ 
   oldPrice: "$2570.00",
   newPrice: "$2490.00 (5%)",
 };
