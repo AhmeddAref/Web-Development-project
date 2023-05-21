@@ -11,10 +11,12 @@ import checkout_router from "./routes/chechout-page.js";
 import form_router from "./routes/form.js";
 import product_router from "./routes/product-page.js";
 import users from "./models/users.js";
+import { check } from "express-validator";
+import { validationResult } from "express-validator";
 
 const app = express();
 
-const { check, validationResult } = import("express-validator");
+//const { check, validationResult } = import("express-validator");
 
 const dbURI =
   "mongodb+srv://OmarHosny18:i6EsIoO2Dd5Naob7@cluster0.bmkpjny.mongodb.net/project?retryWrites=true&w=majority";
@@ -119,7 +121,7 @@ app.get("/signout", (req, res) => {
   req.session.destroy();
   res.redirect("/");
 });
-app.post("/signup", (req, res) => {
+app.post("/signup", urlencodedParser, (req, res) => {
   const user = new users({
     name: req.body.fullname,
     email: req.body.email,
@@ -140,13 +142,9 @@ app.post("/signup", (req, res) => {
 
 //----------------------Validation form------------------//
 
-app.get("/signup", (req, res) => {
-  res.sender("signup");
-});
-
 app.post(
   "/register",
-  urlencodedParser,
+
   [
     check("fullname", "This fullname must me 3+ characters long")
       .exists()
@@ -157,12 +155,9 @@ app.post(
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       // return res.status(422).jsonp(errors.array())
-      const alert = errors.array();
-      res.render("register", {
-        alert,
-      });
+      res.send("error");
+    } else {
+      res.redirect(307, "/signup");
     }
   }
 );
-
-app.listen(port, () => console.info(`App listening on port: ${port}`));
