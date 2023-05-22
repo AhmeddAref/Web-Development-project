@@ -11,12 +11,8 @@ import checkout_router from "./routes/chechout-page.js";
 import form_router from "./routes/form.js";
 import product_router from "./routes/product-page.js";
 import users from "./models/users.js";
-import { check } from "express-validator";
-import { validationResult } from "express-validator";
 
 const app = express();
-
-//const { check, validationResult } = import("express-validator");
 
 const dbURI =
   "mongodb+srv://OmarHosny18:i6EsIoO2Dd5Naob7@cluster0.bmkpjny.mongodb.net/project?retryWrites=true&w=majority";
@@ -139,25 +135,3 @@ app.post("/signup", urlencodedParser, (req, res) => {
       console.log(err);
     });
 });
-
-//----------------------Validation form------------------//
-
-app.post(
-  "/register",
-
-  [
-    check("fullname", "This fullname must me 3+ characters long")
-      .exists()
-      .isLength({ min: 3 }),
-    check("email", "Email is not valid").isEmail().normalizeEmail(),
-  ],
-  (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      // return res.status(422).jsonp(errors.array())
-      res.send("error");
-    } else {
-      res.redirect(307, "/signup");
-    }
-  }
-);
