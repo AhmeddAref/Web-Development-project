@@ -79,201 +79,155 @@
            
 
             <div class="add" id="form">
-              <form class="mt-5"  action="/add-product" method="post" name="form">
+              <form class="mt-5" action="/add-product" method="post" name="form" enctype="multipart/form-data">
                 <div class="mb-3">
-                  <label for="UrunID" class="form-label">Product Name:</label>
-                  <br>
-                  <input
-                    type="text"
-                    class="desc1"
-                    id="UrunID"
-                    aria-describedby=""
-                    required
-                  />
+                    <label for="UrunID" class="form-label">Product Name:</label>
+                    <br>
+                    <input
+                        type="text"
+                        class="desc1"
+                        id="UrunID"
+                        aria-describedby=""
+                        name="name"
+                        required
+                    />
+                </div>
+            
+                <div class="mb-3">
+                    <label for="UrunID" class="form-label">Product description:</label>
+                    <br>
+                    <input
+                        type="text"
+                        class="desc1"
+                        id="UrunID"
+                        aria-describedby=""
+                        name="description"
+                        required
+                    />
                 </div>
                 
                 <div class="mb-3">
-                  <label for="UrunID" class="form-label">Product description:</label>
-                  <br>
-                  <input
-                    type="text"
-                    class="desc1"
-                    id="UrunID"
-                    aria-describedby=""
-                    required
-                  />
+                    <label for="UrunAdi" class="desc2">Colors :</label>
+                    <input
+                        type="text"
+                        class="desc1"
+                        id="UrunID"
+                        name="color"
+                        aria-describedby=""
+                        required
+                    />
                 </div>
+            
                 <div class="mb-3">
-                  <label for="UrunAdi" class="desc2">Colors :</label>
-                  <input
-                    type="text"
-                    class="desc1"
-                    id="UrunID"
-                    name="color"
-                    aria-describedby=""
-                    required
-                  />
-                  <!-- <div id="list1" class="dropdown-check-list" tabindex="100">
-                    <span class="anchor"> color/s</span>
-                    <ul class="items">
-                      <li><input type="checkbox" />Red </li>
-                      <li><input type="checkbox" />Orange</li>
-                      <li><input type="checkbox" />Blue </li>
-                      <li><input type="checkbox" />White </li>
-                      <li><input type="checkbox" />Black </li>
-                      <li><input type="checkbox" />Grey </li>
-                      <li><input type="checkbox" />Pink</li>
-                      <li><input type="checkbox" />Magenta</li>
-                      <li><input type="checkbox" />Turquase</li>
-                      <li><input type="checkbox" />Off-white</li>
-                      <li><input type="checkbox" />Green</li>
-                    </ul>
-                  </div> -->
+                    <label for="Kategori" class="form-label">Product Category:</label>
+                    <br>
+                    <select
+                      
+                        id="Kategori"
+                        class="desc1"
+                        name="category"
+                        required
+                    >
+                        <option></option>
+                        <option value="Modern">Modern</option>
+                        <option value="Classic">Classic</option>
+                        <option value="Old school">Old school</option>
+                        <option value="Electronic">Electronic</option>
+                    </select>
                 </div>
+            
                 <div class="mb-3">
-                  <label class="form-label" for="UrunMiktar"
-                    >Stock Quantity:</label
-                  >
-                  <br>
-                  <input
-                    type="number"
-                    class="desc1"
-                    id="UrunMiktar"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="Kategori" class="form-label"
-                    >Product Category:</label
-                  >
-                  <br>
-                  <select
-                    name="Kategori"
-                    id="Kategori"
-                    class="desc1"
-                    required
-                  >
-                    <option></option>
-                    <option value="Elektronik">Modern</option>
-                    <option value="Giyim">Classic</option>
-                    <option value="Kirtasiye">Old school</option>
-                    <option value="Yiyecek">Electronic</option>
+                    <label for="Kategori" class="form-label">Shipping area:</label>
+                    <br>
+                    <select
                     
-                  </select>
+                        id="Kategori"
+                        class="desc1"
+                        name="shippingArea"
+                        required
+                    >
+                        <option></option>
+                        <option value="All over Egypt">All over Egypt</option>
+                        <option value="Cairo">Cairo</option>
+                        <option value="Alexandria">Alexandria</option>
+                        <option value="Giza">Giza</option>
+                    </select>
                 </div>
+            
                 <div class="mb-3">
-                  <label for="Kategori" class="form-label"
-                    >Shipping area:</label
-                  >
-                  <br>
-                  <select
-                    name="Kategori"
-                    id="Kategori"
-                    class="desc1"
-                    required
-                  >
-                    <option></option>
-                    <option value="Elektronik">All over Egypt</option>
-                    <option value="Giyim">Cairo</option>
-                    <option value="Kirtasiye">Alexandria</option>
-                    <option value="Yiyecek">Giza</option>
-                    
-                  </select>
+                    <label for="Kategori" class="form-label">Old price:</label>
+                    <br>
+                    <input
+                        type="number"
+                        class="desc1"
+                        id="UrunMiktar"
+                        name="oldprice"
+                        required
+                    />
                 </div>
-                <!-- <div class="mb-3">
-                  <label for="Kategori" class="form-label"
-                    >Shipping fees:</label
-                  >
-                  <br>
-                  <input 
-                  type="number"
-                  class="desc1"
-                  id="UrunMiktar"
-                  required
-                />
-                  </select>
-                </div> -->
+            
                 <div class="mb-3">
-                  <label for="Kategori" class="form-label"
-                    >Old price:</label
-                  >
-                  <br>
-                  <input
-                  type="number"
-                  class="desc1"
-                  id="UrunMiktar"
-                  required
-                />
-                  </select>
+                    <label for="Kategori" class="form-label">New price:</label>
+                    <br>
+                    <input
+                        type="number"
+                        class="desc1"
+                        id="UrunMiktar"
+                        name="newprice"
+                        required
+                    />
                 </div>
+            
                 <div class="mb-3">
-                  <label for="Kategori" class="form-label"
-                    >New price: </label
-                  >
-                  <br>
-                  <input
-                  type="number"
-                  class="desc1"
-                  id="UrunMiktar"
-                  required
-                />
-                  </select>
+                    <label for="UrunImage" class="form-label">Product Image:</label>
+                    <br>
+                    <input
+                        type="file"
+                        class="custom-file-input"
+                        name="img1"
+                        id="UrunImage"
+                    />
                 </div>
+                
                 <div class="mb-3">
-                  <label for="UrunImage" class="form-label"
-                    >Product Image:</label
-                  >
+                  <label for="UrunImage" class="form-label">Product Image:</label>
                   <br>
                   <input
-                    type="file"
-                    class="custom-file-input"
-                    name="UrunImage"
-                    id="UrunImage"
+                      type="file"
+                      class="custom-file-input"
+                      name="img2"
+                      id="UrunImage"
                   />
-                  <br>
-                  <input
-                    type="file"
-                    class="custom-file-input"
-                    name="UrunImage"
-                    id="UrunImage"
-                  />
-                  <br>
-                  <input
-                    type="file"
-                    class="custom-file-input"
-                    name="UrunImage"
-                    id="UrunImage"
-                  />
-                  <br>
-                  <input
-                    type="file"
-                    class="custom-file-input"
-                    name="UrunImage"
-                    id="UrunImage"
-                  />
-                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="UrunImage" class="form-label">Product Image:</label>
                 <br>
-                <div class="mt-4">
-                  
-                  
-                </div>
+                <input
+                    type="file"
+                    class="custom-file-input"
+                    name="img3"
+                    id="UrunImage"
+                />
+            </div>
+            
+            <div class="mb-3">
+              <label for="UrunImage" class="form-label">Product Image:</label>
+              <br>
+              <input
+                  type="file"
+                  class="custom-file-input"
+                  name="img4"
+                  id="UrunImage"
+              />
+          </div>
+            
                 <div class="btndiv">
-                  <button
-                    type="submit"
-                    class="btnn"
-                    id="ekleButton"
-                  >
-                    Add product
-                  </button>
-                  <button
-                    type="submit"
-                    class="btnn"
-                    id="ekleButton"
-                  >
-                    Upgrade product
-                  </button>
+                    <button type="submit" class="btnn" id="ekleButton">Add product</button>
+                    <button type="submit" class="btnn" id="ekleButton">Upgrade product</button>
                 </div>
-              </form>
+            </form>
+            
             </div>
         
          

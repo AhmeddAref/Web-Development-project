@@ -6,10 +6,7 @@ const prodSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    rate: {
-      type: String,
-      required: true,
-    },
+
     image1: {
       type: String,
       required: true,
@@ -34,10 +31,7 @@ const prodSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    available: {
-      type: String,
-      required: true,
-    },
+
     category: {
       type: String,
       required: true,
@@ -46,7 +40,7 @@ const prodSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
- 
+
     oldPrice: {
       type: Number,
       required: true,
@@ -59,5 +53,5 @@ const prodSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const products = mongoose.model('products', prodSchema);
+const products = mongoose.model("products", prodSchema);
 export default products;
