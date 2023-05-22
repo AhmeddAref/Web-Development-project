@@ -1,14 +1,27 @@
 import { Router } from "express";
-var router = Router();
-
+const router = Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  const errorMessage = req.query.error || ""; 
+  const errorMessage = req.query.error || "";
   res.render("form", {
-    errorMessage: errorMessage, 
-    Email: req.session && req.session.Email !== undefined ? req.session.Email : "",
+    errorMessage: errorMessage,
+    Email:
+      req.session && req.session.Email !== undefined ? req.session.Email : "",
   });
 });
 
 export default router;
+
+import {
+  validateSignup,
+  signupController,
+} from "../controllers/valcontroller.js";
+
+// signup page
+router.post("/form", validateSignup, signupController);
+
+// login page
+router.post("/login", function (req, res, next) {
+  res.send("login: respond with a resource");
+});
