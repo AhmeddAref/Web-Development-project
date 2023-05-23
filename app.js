@@ -150,9 +150,9 @@ app.post("/signup", urlencodedParser, (req, res) => {
 
 app.post(
   "/register",
-
+  urlencodedParser,
   [
-    check("fullname", "This fullname must me 3+ characters long")
+    check("username", "This username must me 3+ characters long")
       .exists()
       .isLength({ min: 3 }),
     check("email", "Email is not valid").isEmail().normalizeEmail(),
@@ -160,13 +160,15 @@ app.post(
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      // return res.status(422).jsonp(errors.array())
-      res.send("error");
-    } else {
-      res.redirect(307, "/signup");
+      // return res.status(422).jsonp(errors.array());
+      const alert = errors.array();
+      res.render("/register", {
+        alert,
+      });
     }
   }
 );
+//---------------------------------------------------------//
 app.post("/add-product", (req, res) => {
   let imgFiles = [];
   let uploadPaths = [];

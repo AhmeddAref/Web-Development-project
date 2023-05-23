@@ -12,16 +12,3 @@ router.get("/", function (req, res, next) {
 });
 
 export default router;
-
-import {
-  validateSignup,
-  signupController,
-} from "../controllers/valcontroller.js";
-
-// signup page
-router.post("/form", validateSignup, signupController);
-
-// login page
-router.post("/login", function (req, res, next) {
-  res.send("login: respond with a resource");
-});

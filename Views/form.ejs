@@ -38,33 +38,43 @@
         </div>
       </form>
       
-        
-				       
-                  <% if (errors && errors.length > 0) { %>
+     
+      
+                  
                     
-                      <% for (let i = 0; i < errors.length; i++) { %>
-                        <form class="form-signup" action="/signup" method="post" name="form">
+                      
+                        <form class="form-signup" action="/register" method="post" name="form">
+                          <% if(typeof alert != 'undefined') { %>
+                            <% alert.forEach(function(error) { %>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <%= error.msg %>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                            <% }) %>
+                        <% } %>
                           <label for="fullname">Full name</label>
                           <input class="form-styling" type="text" name="fullname" placeholder="Full name" id="username"/>
-                          <small id="alert1"> <% error[i].msg %></small>
+                          <small id="alert1"> </small>
                           <label for="email">Email</label>
                           <input class="form-styling" type="email" name="email" placeholder="Email" id="email"/>
-                          <small  id="alert2"> <% error[i].msg %></small>
+                          <small  id="alert2"> </small>
                           <label for="phone">Phone number</label>
                           <input class="form-styling" type="text" name="phone" placeholder="Phone number" id="phone"/>
-                          <small id="alert3"> <% error[i].msg %></small>
+                          <small id="alert3"> </small>
                           <label for="password">Password</label>
                           <input class="form-styling" type="password" name="password" placeholder="Password" id="password"/>
-                          <small  id="alert4"><% error[i].msg %> </small>
+                          <small  id="alert4"> </small>
                           <label for="confirmpassword">Confirm password</label>
                           <input class="form-styling" type="password" name="confirmpassword" placeholder="Confirm password" id="cpassword"/>
-                          <small  id="alert5"> <% error[i].msg %></small>
+                          <small  id="alert5"> </small>
                           <input type="hidden" name="type" value="client">
                           <button  class="btn-signup"  type="submit">Sign Up</button>
                                 </form>
-                      <% } %>
+                  
                     
-                  <% } %>
+                  
           
              
       
@@ -86,12 +96,12 @@
         <% } %>
       </div>
       
-      <div>
+      <!-- <div>
         <div class="cover-photo"></div>
         <div class="profile-photo"></div>
         <h1 class="welcome">Welcome</h1>
         <a class="btn-goback"  id="Signup" value="Refresh" onclick="handleInput()" >Go back</a>
-      </div>
+      </div> -->
   </div>
     
   
