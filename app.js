@@ -148,26 +148,6 @@ app.post("/signup", urlencodedParser, (req, res) => {
 
 //----------------------Validation form------------------//
 
-app.post(
-  "/register",
-  urlencodedParser,
-  [
-    check("username", "This username must me 3+ characters long")
-      .exists()
-      .isLength({ min: 3 }),
-    check("email", "Email is not valid").isEmail().normalizeEmail(),
-  ],
-  (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      // return res.status(422).jsonp(errors.array());
-      const alert = errors.array();
-      res.render("/register", {
-        alert,
-      });
-    }
-  }
-);
 //---------------------------------------------------------//
 app.post("/add-product", (req, res) => {
   let imgFiles = [];

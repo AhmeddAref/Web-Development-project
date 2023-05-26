@@ -39,21 +39,14 @@
       </form>
       
      
-      
-                  
-                    
-                      
-                        <form class="form-signup" action="/signup" method="post" name="form">
-                          <% if(typeof alert != 'undefined') { %>
-                            <% alert.forEach(function(error) { %>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <%= error.msg %>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                            <% }) %>
-                        <% } %>
+      <% if (errors && errors.length > 0) { %>
+        <div class="alert alert-danger">
+          <% for (let i = 0; i < errors.length; i++) { %>
+            <p><%= errors[i].msg %></p>
+          <% } %>
+        </div>
+      <% } %>
+                   <form class="form-signup" action="/signup" method="post" name="form">
                           <label for="fullname">Full name</label>
                           <input class="form-styling" type="text" name="fullname" placeholder="Full name" id="username"/>
                           <small id="alert1"> </small>
