@@ -17,6 +17,7 @@ const getproduct = (req, res) => {
       console.log(err);
     });
 };
+
 // const getoffers = (req, res) => {
 //   products
 //     .find()
