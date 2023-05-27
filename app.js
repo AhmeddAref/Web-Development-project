@@ -12,14 +12,13 @@ import checkout_router from "./routes/chechout-page.js";
 import form_router from "./routes/form.js";
 import product_router from "./routes/product-page.js";
 import users from "./models/users.js";
-import products from "./models/products.js";
-import { check } from "express-validator";
-import { validationResult } from "express-validator";
+
 import path from "path";
 import fileUpload from "express-fileupload";
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
+
 const app = express();
 
 const dbURI =
@@ -210,3 +209,5 @@ app.post("/add-product", (req, res) => {
     });
   }
 });
+
+export { __dirname, app };
