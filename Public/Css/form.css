@@ -382,7 +382,6 @@ a.btn_signin:hover {
 }
 
 .forgot {
-
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -524,49 +523,27 @@ a.btn-goback:hover {
   fill: #e98074;
   transform: rotate(180deg);
 }
-.error-notice{
-  margin:5px; 
+.error-notice {
+  margin: 5px;
 }
 
-.oaerror{
-  width:80%;
+.oaerror {
+  width: 80%;
   background-color: #ffffff;
- padding: 10px;
-  border:1px solid #eee;
-  border-left-width:5px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-left-width: 5px;
   border-radius: 3px;
-  margin:10px auto;
-  font-family: 'Open Sans', sans-serif;
+  margin: 10px auto;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
 }
 
-.danger{
+.danger {
   border-left-color: #d9534f;
-  background-color: rgba(217, 83, 79, 0.1); 
+  background-color: rgba(217, 83, 79, 0.1);
 }
 
-.danger strong{
-  color:#d9534f;
+.danger strong {
+  color: #d9534f;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
