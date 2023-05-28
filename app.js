@@ -100,27 +100,6 @@ app.post("/remove-item", (req, res) => {
 
 //-------------------------------------------//
 
-app.post("/signin", (req, res) => {
-  var email = req.body.Email;
-  var password = req.body.password;
-
-  users
-    .findOne({ email: email, password: password })
-    .then((result) => {
-      if (result) {
-        req.session.Email = email;
-
-        res.redirect("/");
-      } else {
-        res.redirect("/form?error=Invalid information. Please try again.");
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send("Internal Server Error");
-    });
-});
-
 app.get("/signout", (req, res) => {
   req.session.destroy();
   res.redirect("/");
