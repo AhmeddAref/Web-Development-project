@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { addproduct, addcategory } from "../controllers/Admin.js";
 var router = Router();
 
 // check if admin
@@ -20,5 +21,9 @@ router.get("/", function (req, res, next) {
       req.session && req.session.Email !== undefined ? req.session.Email : "",
   });
 });
+
+router.post("/addproduct", addproduct);
+
+router.post("/addcategory", addcategory);
 
 export default router;

@@ -1,4 +1,5 @@
 import { body, validationResult } from "express-validator";
+import users from "../models/users.js";
 
 const validateSignup = [
   body("fullname").notEmpty().withMessage("fullname is required"),
@@ -25,10 +26,14 @@ const validateSignup = [
 // Process signup form
 const signupController = (req, res) => {
   const errors = validationResult(req);
+  const errorMessage = req.query.error || "";
   if (!errors.isEmpty()) {
-    res.render("/form", {
+    res.render("form", {
+      errorMessage: errorMessage,
       title: "Signup page - Validation Failed",
       errors: errors.array(),
+      Email:
+        req.session && req.session.Email !== undefined ? req.session.Email : "",
     });
   } else {
     // Process the signup logic
@@ -36,4 +41,25 @@ const signupController = (req, res) => {
   }
 };
 
-export { validateSignup, signupController };
+const checkuser = (req, res) => {
+  var email = req.body.Email;
+  var password = req.body.password;
+
+  users
+    .findOne({ email: email, password: password })
+    .then((result) => {
+      if (result) {
+        req.session.Email = email;
+
+        res.redirect("/");
+      } else {
+        res.redirect("/form?error=Invalid information. Please try again.");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send("Internal Server Error");
+    });
+};
+
+export { validateSignup, signupController, checkuser };

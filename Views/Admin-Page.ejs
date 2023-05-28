@@ -79,7 +79,7 @@
            
 
             <div class="add" id="form">
-              <form class="mt-5" action="/add-product" method="post" name="form" enctype="multipart/form-data">
+              <form class="mt-5" action="/Admin-page/addproduct" method="post" name="form" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="UrunID" class="form-label">Product Name:</label>
                     <br>
@@ -129,10 +129,11 @@
                         required
                     >
                         <option></option>
-                        <option value="Modern">Modern</option>
-                        <option value="Classic">Classic</option>
-                        <option value="Old school">Old school</option>
-                        <option value="Electronic">Electronic</option>
+                        <option value="Beds & mattresses">Beds & mattresses</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Decoration">Decoration</option>
+                        <option value="Kitchen & appliances">Kitchen & appliances</option>
+                        <option value="Bathroom products">Bathroom products</option>
                     </select>
                 </div>
             
@@ -240,13 +241,14 @@
         
         
             <div class="add" id="form">
-              <form class="mt-5">
+              <form class="mt-5" action="/Admin-page/addcategory" method="post" name="form" enctype="multipart/form-data">
                 <div class="mb-3">
                   <label for="UrunID" class="form-label">Category Name:</label>
                   <input
                     type="text"
                     class="desc1"
                     id="UrunID"
+                    name="name"
                     aria-describedby=""
                     required
                   />
@@ -260,7 +262,7 @@
                   <input
                     type="file"
                     class="form-control"
-                    name="UrunImage"
+                    name="image"
                     id="UrunImage"
                   />
                   <br>
