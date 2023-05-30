@@ -49,9 +49,20 @@ const signupController = (req, res) => {
   }
 };
 
+
+const validateCheckUser = [
+  body("Email").isEmail().withMessage("Invalid email"),
+  body("password").notEmpty().withMessage("Password is required"),
+];
+
 const checkuser = (req, res) => {
-  var email = req.body.Email;
-  var password = req.body.password;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.redirect("/form?error=Invalid information. Please try again.");
+  }
+
+  const email = req.body.Email;
+  const password = req.body.password;
 
   users
     .findOne({ email: email, password: password })
@@ -71,4 +82,4 @@ const checkuser = (req, res) => {
     });
 };
 
-export { validateSignup, signupController, checkuser };
+export { validateCheckUser, checkuser };
