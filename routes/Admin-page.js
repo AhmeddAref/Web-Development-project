@@ -1,5 +1,9 @@
 import { Router } from "express";
-import { addproduct, addcategory } from "../controllers/Admin.js";
+import {
+  addproduct,
+  addcategory,
+  getallproducts,
+} from "../controllers/Admin.js";
 var router = Router();
 
 // check if admin
@@ -25,5 +29,6 @@ router.get("/", function (req, res, next) {
 router.post("/addproduct", addproduct);
 
 router.post("/addcategory", addcategory);
+router.get("/allproducts", getallproducts);
 
 export default router;

@@ -93,4 +93,21 @@ const addcategory = (req, res) => {
   });
 };
 
-export { addproduct, addcategory };
+const getallproducts = (req, res) => {
+  products
+    .find()
+    .then((result) => {
+      res.render("allproducts", {
+        products: result,
+        Email:
+          req.session && req.session.Email !== undefined
+            ? req.session.Email
+            : "",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export { addproduct, addcategory, getallproducts };

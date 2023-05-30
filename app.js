@@ -105,26 +105,6 @@ app.get("/signout", (req, res) => {
   res.redirect("/");
 });
 
-//--------------------sign up
-app.post("/signup", urlencodedParser, (req, res) => {
-  const user = new users({
-    name: req.body.fullname,
-    email: req.body.email,
-    phonenumber: req.body.phone,
-    password: req.body.password,
-    Type: req.body.type,
-  });
-
-  user
-    .save()
-    .then((result) => {
-      res.redirect("/form");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
 //search bar
 // Get a reference to the search input field and search results container
 // const searchInput = document.querySelector("#search-input");
