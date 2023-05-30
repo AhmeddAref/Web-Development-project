@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", function () {
+  var mode = document.getElementById("mode").innerText;
+
+  if (mode === "signup") {
+    document.querySelector(".signup-inactive a.btn").click();
+  }
+});
+
 document.querySelectorAll(".btn").forEach(function (btn) {
   btn.addEventListener("click", function () {
     document.querySelector(".form-signin").classList.toggle("form-signin-left");
@@ -9,7 +17,7 @@ document.querySelectorAll(".btn").forEach(function (btn) {
     document
       .querySelector(".signin-active")
       .classList.toggle("signin-inactive");
-    document.querySelector(".forgot").classList.toggle("forgot-left");
+
     this.classList.remove("idle");
     this.classList.add("active");
   });
