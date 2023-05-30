@@ -2,7 +2,7 @@ import categories from "../models/categories.js";
 
 import offers from "../Data/offers.js";
 import slides from "../Data/slides.js";
-const err = " ";
+
 const getcategories = (req, res) => {
   categories
     .find()
@@ -16,7 +16,7 @@ const getcategories = (req, res) => {
           req.session && req.session.Email !== undefined
             ? req.session.Email
             : "",
-        err: err,
+        err: "",
       });
     })
     .catch((err) => {

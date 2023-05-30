@@ -7,7 +7,7 @@ import categories from "../models/categories.js";
 import offers from "../Data/offers.js";
 import slides from "../Data/slides.js";
 import cat from "../Data/cat.js";
-const err = " ";
+
 var router = Router();
 
 /* GET home page. */
