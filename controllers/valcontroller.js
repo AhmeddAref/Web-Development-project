@@ -4,6 +4,10 @@ import users from "../models/users.js";
 const validateSignup = [
   body("fullname").notEmpty().withMessage("fullname is required"),
   body("email").isEmail().withMessage("Invalid email"),
+  body("phone")
+    .notEmpty()
+    .isLength({ min: 11, max: 11 })
+    .withMessage("Phone number must be 11 digits"),
   body("password")
     .isLength({ min: 6 })
     .withMessage("Password must be at least 6 characters"),
@@ -13,10 +17,6 @@ const validateSignup = [
   body("confirmpassword")
     .custom((value, { req }) => value === req.body.password)
     .withMessage("Passwords do not match"),
-  body("phone")
-    .notEmpty()
-    .isLength({ min: 11, max: 11 })
-    .withMessage("Phone number must be 11 digits"),
 ];
 
 // Process signup form
