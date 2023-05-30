@@ -86,3 +86,12 @@ checkList.getElementsByClassName("anchor")[0].onclick = function (evt) {
     checkList.classList.remove("visible");
   else checkList.classList.add("visible");
 };
+
+$("#not-popup button").click(function () {
+  $("#not-popup").fadeOut();
+});
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("not").innerHTML != " ") {
+    document.getElementById("not-popup").style.display = "block";
+  }
+});

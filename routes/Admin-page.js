@@ -4,19 +4,8 @@ import {
   addcategory,
   getallproducts,
 } from "../controllers/Admin.js";
-var router = Router();
 
-// check if admin
-router.use((req, res, next) => {
-  if (req.session.Email !== undefined && req.session.Type === "admin") {
-    next();
-  } else {
-    res.render("err", {
-      err: "You are not an Admin",
-      user: req.session.email === undefined ? "" : req.session.email,
-    });
-  }
-});
+var router = Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
