@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,8 +25,12 @@
         <li class="signup-inactive"><a class="btn">Sign up </a></li>
       </ul>
     </div>
+    <p id="mode"><%=mode %></p>
+
+
     <div ng-app ng-init="checked = false">
-      <section id="signin">
+    
+
       <form class="form-signin" action="/form/signin" method="post" name="form">
         <label for="email1">Email</label>
         <input class="form-styling" type="email" name="Email" placeholder=""/>
@@ -45,9 +49,10 @@
           </div>
         <% } %>
       </div>
-    </section>
+  
 
-      <section id="signup">
+
+      
         
       <% let errorMsgs = []; %>
 
@@ -82,7 +87,7 @@
                   
                              
                   
-                              </section>
+                         
              
   
       

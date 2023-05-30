@@ -13,7 +13,8 @@ router.use((req, res, next) => {
   } else {
     res.render("err", {
       err: "You are not an Admin",
-      user: req.session.email === undefined ? "" : req.session.email,
+      Email:
+        req.session && req.session.Email !== undefined ? req.session.Email : "",
     });
   }
 });
