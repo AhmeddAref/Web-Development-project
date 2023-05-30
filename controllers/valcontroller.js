@@ -10,10 +10,10 @@ const validateSignup = [
   body("password")
     .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)
     .withMessage("Numbers and special characters must be contained"),
-  body("confirmPassword")
+  body("confirmpassword")
     .custom((value, { req }) => value === req.body.password)
     .withMessage("Passwords do not match"),
-  body("phonenumber")
+  body("phone")
     .notEmpty()
     .isLength({ min: 11, max: 11 })
     .withMessage("Phone number must be 11 digits"),
@@ -32,8 +32,22 @@ const signupController = (req, res) => {
         req.session && req.session.Email !== undefined ? req.session.Email : "",
     });
   } else {
-    // Process the signup logic
-    res.send("Signup successful");
+    const user = new users({
+      name: req.body.fullname,
+      email: req.body.email,
+      phonenumber: req.body.phone,
+      password: req.body.password,
+      Type: req.body.type,
+    });
+
+    user
+      .save()
+      .then((result) => {
+        res.redirect("/form");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 };
 
