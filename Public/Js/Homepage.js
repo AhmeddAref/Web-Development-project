@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var okbtn = document.getElementsByClassName("not-popup__button");
 
   document.addEventListener("click", function () {
+    document.getElementById("not").innerText = "";
     document.getElementById("not-popup").style.display = "none";
   });
 });

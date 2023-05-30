@@ -49,7 +49,6 @@ const signupController = (req, res) => {
   }
 };
 
-
 const validateCheckUser = [
   body("Email").isEmail().withMessage("Invalid email"),
   body("password").notEmpty().withMessage("Password is required"),
@@ -82,4 +81,4 @@ const checkuser = (req, res) => {
     });
 };
 
-export { validateCheckUser, checkuser };
+export { validateSignup, signupController, validateCheckUser, checkuser };
