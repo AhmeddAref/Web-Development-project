@@ -4,19 +4,15 @@ import users from "../models/users.js";
 const validateSignup = [
   body("fullname").notEmpty().withMessage("fullname is required"),
   body("email").isEmail().withMessage("Invalid email"),
-  body("password")
-    .isLength({ min: 6 })
-    .withMessage("Password must be at least 6 characters"),
+  body("phone")
+    .isLength({ min: 11, max: 11 })
+    .withMessage("Phone number must be 11 digits"),
   body("password")
     .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)
     .withMessage("Numbers and special characters must be contained"),
   body("confirmpassword")
     .custom((value, { req }) => value === req.body.password)
     .withMessage("Passwords do not match"),
-  body("phone")
-    .notEmpty()
-    .isLength({ min: 11, max: 11 })
-    .withMessage("Phone number must be 11 digits"),
 ];
 
 // Process signup form
@@ -60,6 +56,7 @@ const checkuser = (req, res) => {
     .then((result) => {
       if (result) {
         req.session.Email = email;
+        req.session.Type = result.Type;
 
         res.redirect("/");
       } else {
