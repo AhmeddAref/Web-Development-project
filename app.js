@@ -105,4 +105,75 @@ app.get("/signout", (req, res) => {
   res.redirect("/");
 });
 
+//--------------------sign up
+app.post("/signup", urlencodedParser, (req, res) => {
+  const user = new users({
+    name: req.body.fullname,
+    email: req.body.email,
+    phonenumber: req.body.phone,
+    password: req.body.password,
+    Type: req.body.type,
+  });
+
+  user
+    .save()
+    .then((result) => {
+      res.redirect("/form");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+
+//search bar
+// Get a reference to the search input field and search results container
+const searchInput = document.querySelector("#search-input");
+const searchResultsContainer = document.querySelector("#search-results");
+
+// Function to update the search results in the UI
+function updateSearchResults(results) {
+  // Clear the previous search results
+  searchResultsContainer.innerHTML = "";
+
+  // Iterate over the results and create HTML elements to display them
+  results.forEach((result) => {
+    const resultItem = document.createElement("div");
+    resultItem.textContent = result.title;
+
+    // Append the result item to the search results container
+    searchResultsContainer.appendChild(resultItem);
+  });
+}
+
+// Function to handle the search input
+function handleSearchInput() {
+  const query = searchInput.value; // Get the search query from the input field
+
+  // Send the Ajax request to the server
+  fetch(`/search?q=${encodeURIComponent(query)}`)
+    .then((response) => response.json()) // Parse the response as JSON
+    .then((data) => {
+      // Handle the response data
+      updateSearchResults(data); // Update the search results in the UI
+    })
+    .catch((error) => {
+      // Handle any errors that occurred during the request
+      console.error(error);
+    });
+}
+
+// Add an event listener to the search input field for input event
+searchInput.addEventListener("input", handleSearchInput);
+
+
+
+
+//----------------------Validation form------------------//
+
+//---------------------------------------------------------//
+
+
+
+
 export { __dirname, app };
