@@ -3,12 +3,14 @@ import { getproduct } from "../controllers/products.js";
 
 var router = Router();
 
-// router.get("/:id", (req, res, next) => {
-//   res.render("Product-page", {
-//
-//   });
-// });
+router.get("/", (req, res, next) => {
+  res.render("Product-page", {
+    Email:
+      req.session && req.session.Email !== undefined ? req.session.Email : "",
+    prod: prod,
+  });
+});
 
-router.get("/:id", getproduct);
+//router.get("/:id", getproduct);
 
 export default router;

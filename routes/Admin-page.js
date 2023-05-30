@@ -3,16 +3,16 @@ import { addproduct, addcategory } from "../controllers/Admin.js";
 var router = Router();
 
 // check if admin
-router.use((req, res, next) => {
-  if (req.session.email !== undefined && req.session.email.Type === "admin") {
-    next();
-  } else {
-    res.render("./", {
-      err: "You are not an Admin",
-      user: req.session.email === undefined ? "" : req.session.email,
-    });
-  }
-});
+// router.use((req, res, next) => {
+//   if (req.session.email !== undefined && req.session.email.Type === "admin") {
+//     next();
+//   } else {
+//     res.render("./", {
+//       err: "You are not an Admin",
+//       user: req.session.email === undefined ? "" : req.session.email,
+//     });
+//   }
+// });
 
 /* GET home page. */
 router.get("/", function (req, res, next) {

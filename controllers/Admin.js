@@ -2,6 +2,8 @@ import products from "../models/products.js";
 import path from "path";
 import { __dirname } from "../app.js";
 import categories from "../models/categories.js";
+
+//add product
 const addproduct = (req, res) => {
   let imgFiles = [];
   let uploadPaths = [];
@@ -63,6 +65,7 @@ const addproduct = (req, res) => {
   }
 };
 
+//add category
 const addcategory = (req, res) => {
   if (!req.body.name || !req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send("Name and file are required.");
