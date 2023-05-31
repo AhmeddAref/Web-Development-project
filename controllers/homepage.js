@@ -1,7 +1,6 @@
 import categories from "../models/categories.js";
 
 import offers from "../Data/offers.js";
-import slides from "../Data/slides.js";
 
 const getcategories = (req, res) => {
   categories
@@ -10,7 +9,6 @@ const getcategories = (req, res) => {
       res.render("index", {
         cat: result,
         offers: offers,
-        slides: slides,
 
         Email:
           req.session && req.session.Email !== undefined
