@@ -3,39 +3,25 @@ import beds from "../Data/beds.js";
 import products from "../models/products.js";
 
 const getcategories = (req, res) => {
-  categories
-    .find()
-    .then((result) => {
-      res.render("category", {
-        categories: result,
-        beds: beds,
-        Email:
-          req.session && req.session.Email !== undefined
-            ? req.session.Email
-            : "",
+  categories.find().then((cat) => {
+    products
+      .find()
+      .then((result) => {
+        res.render("category", {
+          categories: cat,
+          products: result,
+          Email:
+            req.session && req.session.Email !== undefined
+              ? req.session.Email
+              : "",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  });
 };
 
-const getprod = (req, res) => {
-  products
-    .find()
-    .then((result) => {
-      res.render("category", {
-        products: result,
-        Email:
-          req.session && req.session.Email !== undefined
-            ? req.session.Email
-            : "",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+// const getprod = (req, res) => {};
 
 export { getcategories };
-export {getprod};
