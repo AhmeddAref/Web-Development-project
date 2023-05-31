@@ -3,6 +3,8 @@ import path from "path";
 import { __dirname } from "../app.js";
 import categories from "../models/categories.js";
 
+import fs from "fs";
+
 //add product
 const addproduct = (req, res) => {
   let imgFiles = [];
@@ -195,5 +197,59 @@ const updateProduct = (req, res) => {
     });
   }
 };
+const deleteproduct = (req, res) => {
+  products
+    .findByIdAndDelete(req.params.id)
+    .then((result) => {
+      const image1Path = path.join(
+        __dirname,
+        "/public/images/" + req.params.image1
+      );
+      const image2Path = path.join(
+        __dirname,
+        "/public/images/" + req.params.image2
+      );
+      const image3Path = path.join(
+        __dirname,
+        "/public/images/" + req.params.image3
+      );
+      const image4Path = path.join(
+        __dirname,
+        "/public/images/" + req.params.image4
+      );
 
-export { addproduct, addcategory, getallproducts, editproduct, updateProduct };
+      fs.unlink(image1Path, (err) => {
+        if (err) {
+          throw err;
+        }
+        fs.unlink(image2Path, (err) => {
+          if (err) {
+            throw err;
+          }
+          fs.unlink(image3Path, (err) => {
+            if (err) {
+              throw err;
+            }
+            fs.unlink(image4Path, (err) => {
+              if (err) {
+                throw err;
+              }
+              res.redirect("/Admin-page/allproducts");
+            });
+          });
+        });
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export {
+  addproduct,
+  addcategory,
+  getallproducts,
+  editproduct,
+  updateProduct,
+  deleteproduct,
+};

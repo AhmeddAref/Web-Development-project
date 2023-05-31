@@ -19,7 +19,11 @@
           <a class="button" href="/Admin-page/editproduct/<%= item._id%>"
             >Edit</a
           >
-          <a class="button" href="#">Delete</a>
+          <a
+            class="button"
+            href="/Admin-page/deleteproduct/<%= item.image1 %>/<%= item.image2 %>/<%= item.image3 %>/<%= item.image4 %>/<%= item._id %>"
+            >Delete</a
+          >
         </figure>
         <% }); %>
       </div>

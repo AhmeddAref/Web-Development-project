@@ -5,6 +5,7 @@ import {
   getallproducts,
   editproduct,
   updateProduct,
+  deleteproduct,
 } from "../controllers/Admin.js";
 
 import offers from "../Data/offers.js";
@@ -46,6 +47,7 @@ router.post("/addcategory", addcategory);
 router.get("/allproducts", getallproducts);
 router.get("/editproduct/:id", editproduct);
 router.post("/editproduct/:id", updateProduct);
+router.get("/deleteproduct/:image1/:image2/:image3/:image4/:id", deleteproduct);
 
 router.get("/products", () => {});
 
