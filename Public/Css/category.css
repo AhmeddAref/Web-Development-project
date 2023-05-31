@@ -97,11 +97,32 @@ img {
   border-radius: 0.5%;
 }
 
-h3.pname,
-p.price {
+h3.pname {
   margin: 15px;
   margin-left: 10px;
   color: white;
+}
+
+p.price {
+  font-size: 17px;
+  margin: 15px;
+  margin-left: 10px;
+  margin-right: 0px;
+  color: white;
+  display:inline;
+}
+
+p.newprice
+{
+  font-size: 17px;
+  margin: 15px;
+  margin-left: 5px;
+  color: red;
+  display:inline;
+}
+
+p.Error {
+  font-size: 35px;
 }
 
 button.addtocart {
@@ -120,7 +141,7 @@ button.addtocart {
   outline: none;
   display: block;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 button.addtocart:hover {

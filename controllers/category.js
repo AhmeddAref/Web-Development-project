@@ -1,5 +1,4 @@
 import categories from "../models/categories.js";
-import beds from "../Data/beds.js";
 import products from "../models/products.js";
 
 const getcategories = (req, res) => {
@@ -21,7 +20,5 @@ const getcategories = (req, res) => {
       });
   });
 };
-
-// const getprod = (req, res) => {};
 
 export { getcategories };

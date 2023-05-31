@@ -23,7 +23,7 @@ function myFunction() {
         <button onclick="myFunction()" class="dropbtn">PRODUCTS</button>
         <div id="myDropdown" class="dropdown-content">
         <% categories.forEach(cat=> { %>
-          <a href=""><%= cat.name %></a>
+          <a href="/category/<%= cat.name %>"><%= cat.name %></a>
         <% }) %>
         </div>
       </div>
@@ -35,17 +35,31 @@ function myFunction() {
         <% products.forEach(prod=> { %>
   
       <div class="product" role="button" onclick="location.href='/Product-page'">
-          <img src="<%= prod.imageUrl %>" alt="">
+          <img src="/images/<%= prod.image1 %>" alt="<%= prod.name %> image">
           <h3 class="pname"><%= prod.name %></h3>
-          <P class="price">EGP <%= prod.price %></P>
+          <%
+          if(prod.newPrice>0)
+          {%>
+            <p class="price" ><del>EGP <%= prod.oldPrice %></del></p>
+            <P class="newprice">EGP <%= prod.newPrice %></P>
+          <% } 
+          else 
+          {
+            %>
+            <p class="price" >EGP <%= prod.oldPrice %></p>
+            <% } %>
           <hr>
+          <center>
           <button class="addtocart" type="button" name="addtocaart" onclick="">Add to cart</button>
+          </center>
       </div>
   
       <% }) %>
       <% } else { %>
-        <p>There are no products to display...</p>
-        <% } %>
+        <Center>
+        <p class="Error">OOPS, there are no products to display...</p>
+        </Center>
+      <% } %>
       </div> 
       
 </body>
