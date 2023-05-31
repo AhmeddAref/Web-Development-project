@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { getproduct } from "../controllers/products.js";
+import prod from "../Data/products.js";
 
 var router = Router();
 

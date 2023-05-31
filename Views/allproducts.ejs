@@ -16,7 +16,9 @@
           <img src="<%= '/images/' + item.image1 %>" />
           <figcaption><%= item.name %></figcaption>
           <span class="price"><%= item.newPrice +"$" %></span>
-          <a class="button" href="#">Edit</a>
+          <a class="button" href="/Admin-page/editproduct/<%= item._id%>"
+            >Edit</a
+          >
           <a class="button" href="#">Delete</a>
         </figure>
         <% }); %>

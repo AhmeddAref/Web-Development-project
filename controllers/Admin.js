@@ -110,4 +110,90 @@ const getallproducts = (req, res) => {
     });
 };
 
-export { addproduct, addcategory, getallproducts };
+const editproduct = (req, res) => {
+  products
+    .findOne({ _id: req.params.id })
+    .then((product) => {
+      res.render("Admin-page", { product: product });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send("Error retrieving product");
+    });
+};
+const updateProduct = (req, res) => {
+  let imgFiles = [];
+  let uploadPaths = [];
+
+  console.log(req.files);
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send("No files were uploaded.");
+  }
+
+  imgFiles.push(req.files.img1);
+  imgFiles.push(req.files.img2);
+  imgFiles.push(req.files.img3);
+  imgFiles.push(req.files.img4);
+
+  for (let i = 0; i < imgFiles.length; i++) {
+    const imgFile = imgFiles[i];
+    const uploadPath =
+      __dirname +
+      "/public/images/" +
+      req.body.un +
+      "_img" +
+      (i + 1) +
+      path.extname(imgFile.name);
+
+    uploadPaths.push(uploadPath);
+
+    imgFile.mv(uploadPath, function (err) {
+      if (err) {
+        return res.status(500).send(err);
+      }
+
+      if (uploadPaths.length === imgFiles.length && i === imgFiles.length - 1) {
+        products
+          .findById(req.params.id)
+          .then((product) => {
+            if (!product) {
+              return res.status(404).send("Product not found");
+            }
+
+            product.name = req.body.name;
+            product.description = req.body.description;
+            product.color = req.body.color;
+            product.category = req.body.category;
+            product.shippingArea = req.body.shippingArea;
+            product.oldPrice = req.body.oldprice;
+            product.newPrice = req.body.newprice;
+            product.image1 =
+              req.body.name + "_img1" + path.extname(imgFiles[0].name);
+            product.image2 =
+              req.body.name + "_img2" + path.extname(imgFiles[1].name);
+            product.image3 =
+              req.body.name + "_img3" + path.extname(imgFiles[2].name);
+            product.image4 =
+              req.body.name + "_img4" + path.extname(imgFiles[3].name);
+
+            product
+              .save()
+              .then((updatedProduct) => {
+                res.redirect("/Admin-page/allproducts");
+              })
+              .catch((err) => {
+                console.log(err);
+                res.status(500).send("Error updating product");
+              });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.status(500).send("Error retrieving product");
+          });
+      }
+    });
+  }
+};
+
+export { addproduct, addcategory, getallproducts, editproduct, updateProduct };

@@ -80,9 +80,15 @@ btn3.addEventListener("click", () => {
   section3.style.display = "block";
 });
 
-var checkList = document.getElementById("list1");
-checkList.getElementsByClassName("anchor")[0].onclick = function (evt) {
-  if (checkList.classList.contains("visible"))
-    checkList.classList.remove("visible");
-  else checkList.classList.add("visible");
-};
+// var checkList = document.getElementById("list1");
+// checkList.getElementsByClassName("anchor")[0].onclick = function (evt) {
+//   if (checkList.classList.contains("visible"))
+//     checkList.classList.remove("visible");
+//   else checkList.classList.add("visible");
+// };
+
+var trigger = document.getElementById("trigger");
+
+if (trigger.innerText !== "") {
+  btn1.click();
+}
