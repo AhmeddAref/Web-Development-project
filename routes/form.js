@@ -3,6 +3,7 @@ import {
   validateSignup,
   signupController,
   checkuser,
+  checkemail,
 } from "../controllers/valcontroller.js";
 
 const router = Router();
@@ -23,7 +24,7 @@ router.get("/", function (req, res, next) {
 
 // signup page
 router.post("/signup", validateSignup, signupController);
-
+router.post("/checkemail", checkemail);
 // signin page
 router.post("/signin", checkuser);
 

@@ -81,4 +81,26 @@ const checkuser = (req, res) => {
     });
 };
 
-export { validateSignup, signupController, validateCheckUser, checkuser };
+const checkemail = (req, res) => {
+  var query = { email: req.body.email };
+  users
+    .find(query)
+    .then((result) => {
+      if (result.length > 0) {
+        res.send("already taken");
+      } else {
+        res.send("available");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export {
+  validateSignup,
+  signupController,
+  validateCheckUser,
+  checkuser,
+  checkemail,
+};
