@@ -1,5 +1,6 @@
 import categories from "../models/categories.js";
 import beds from "../Data/beds.js";
+import products from "../models/products.js";
 
 const getcategories = (req, res) => {
   categories
@@ -19,4 +20,22 @@ const getcategories = (req, res) => {
     });
 };
 
+const getprod = (req, res) => {
+  products
+    .find()
+    .then((result) => {
+      res.render("category", {
+        products: result,
+        Email:
+          req.session && req.session.Email !== undefined
+            ? req.session.Email
+            : "",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export { getcategories };
+export {getprod};

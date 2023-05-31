@@ -31,24 +31,22 @@ function myFunction() {
       <hr>
 
       <div class="products">
-      <% if (beds.length> 0) { %>
-      <% beds.forEach(bed=> { %>
-    <div class="product" role="button" onclick="location.href='/Product-page'">
-        <img src="<%= bed.imageUrl %>" alt="">
-        <h3 class="pname"><%= bed.name %></h3>
-        <P class="price">EGP <%= bed.price %></P>
-        <hr>
-        <button class="addtocart" type="button" name="addtocaart" onclick="">Add to cart</button>
-    </div>
-    <% }) %>
-    <% } else { %>
-      <p>There are no beds to display...</p>
-      <% } %>
-    </div> 
+        <% if (products.length> 0) { %>
+        <% products.forEach(prod=> { %>
+  
+      <div class="product" role="button" onclick="location.href='/Product-page'">
+          <img src="<%= prod.imageUrl %>" alt="">
+          <h3 class="pname"><%= prod.name %></h3>
+          <P class="price">EGP <%= prod.price %></P>
+          <hr>
+          <button class="addtocart" type="button" name="addtocaart" onclick="">Add to cart</button>
+      </div>
+  
+      <% }) %>
+      <% } else { %>
+        <p>There are no products to display...</p>
+        <% } %>
+      </div> 
       
-</body>
-</html>
-   
-  -->  
 </body>
 </html>
