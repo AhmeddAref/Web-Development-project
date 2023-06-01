@@ -73,31 +73,31 @@
         </div>
       </section>
       <!-- ------------------offers-------------- -->
-
       <section id="Offers">
         <div class="product-container">
-          <% offers.forEach(product => { %>
+          <% offers.forEach((offer) => { %>
           <div class="product-card" role="button">
             <img
-              src="<%= '/images/' + product.image1 %>"
-              alt="<%= product.name %>"
+              src="<%= '/images/' + offer.image1 %>"
+              alt="<%= offer.name %>"
               class="product-image"
             />
-            <h3 class="product-name"><%= product.name %></h3>
-            <p class="product-description"><%= product.description %></p>
-            <% if (product.newPrice) { %>
+            <h3 class="product-name"><%= offer.name %></h3>
+            <p class="product-description"><%= offer.description %></p>
+            <% if (offer.newPrice) { %>
             <div class="product-price">
-              <span class="original-price"><%= product.oldPrice %></span>
-              <span class="discount-price"><%= product.newPrice %></span>
+              <span class="original-price"><%= offer.oldPrice %></span>
+              <span class="discount-price"><%= offer.newPrice %></span>
             </div>
             <% } else { %>
-            <div class="product-price"><%= product.oldPrice %></div>
+            <div class="product-price"><%= offer.oldPrice %></div>
             <% } %>
             <button class="add-to-cart-button">Add to Cart</button>
           </div>
-          <% }); %>
+          <% }) %>
         </div>
       </section>
+
       <!-- ------------------contact-------------- -->
       <section id="contact">
         <div class="container">

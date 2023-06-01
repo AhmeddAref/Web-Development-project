@@ -2,6 +2,7 @@ import products from "../models/products.js";
 import path from "path";
 import { __dirname } from "../app.js";
 import categories from "../models/categories.js";
+import offers from "../Data/offers.js";
 
 import fs from "fs";
 
@@ -197,6 +198,30 @@ const updateProduct = (req, res) => {
     });
   }
 };
+const addoffers = (req, res) => {
+  products.findOne({ _id: req.params.id }).then((product) => {
+    categories
+      .find()
+      .then((result) => {
+        offers.push(product);
+
+        res.render("index", {
+          cat: result,
+          offers: offers,
+
+          Email:
+            req.session && req.session.Email !== undefined
+              ? req.session.Email
+              : "",
+          err: "",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+};
+
 const deleteproduct = (req, res) => {
   products
     .findByIdAndDelete(req.params.id)
@@ -251,5 +276,6 @@ export {
   getallproducts,
   editproduct,
   updateProduct,
+  addoffers,
   deleteproduct,
 };
