@@ -14,6 +14,7 @@ import product_router from "./routes/product-page.js";
 import users from "./models/users.js";
 import products from "./models/products.js";
 
+import MongoStore from "connect-mongo";
 import path from "path";
 import fileUpload from "express-fileupload";
 const __filename = fileURLToPath(import.meta.url);
@@ -37,11 +38,19 @@ app.use(express.json());
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+const sessionStore = MongoStore.create({
+  mongoUrl:
+    "mongodb+srv://OmarHosny18:i6EsIoO2Dd5Naob7@cluster0.bmkpjny.mongodb.net/project?retryWrites=true&w=majority",
+  collectionName: "sessions",
+  ttl: 14 * 24 * 60 * 60,
+});
+
 app.use(
   session({
     secret: "your-secret-key",
     resave: false,
     saveUninitialized: true,
+    store: sessionStore,
   })
 );
 
