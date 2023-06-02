@@ -3,7 +3,7 @@ import path from "path";
 import { __dirname } from "../app.js";
 import categories from "../models/categories.js";
 import offers from "../Data/offers.js";
-
+import users from "../models/users.js";
 import fs from "fs";
 
 //add product
@@ -269,6 +269,24 @@ const deleteproduct = (req, res) => {
       console.log(err);
     });
 };
+//----------------Users-----------------//
+
+const GetAllUsers = (req, res) => {
+  users
+    .find()
+    .then((result) => {
+      res.render("Admin-page", {
+        users: result,
+        Email:
+          req.session && req.session.Email !== undefined
+            ? req.session.Email
+            : "",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 export {
   addproduct,
@@ -278,4 +296,5 @@ export {
   updateProduct,
   addoffers,
   deleteproduct,
+  GetAllUsers,
 };

@@ -114,7 +114,7 @@ for (var i = 0; i < cartbtn.length; i++) {
       });
   });
 }
-
+//-----------------------------------------Notification error------------------
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("not").innerText === "You are not an Admin") {
     document.getElementById("not-popup").style.display = "block";

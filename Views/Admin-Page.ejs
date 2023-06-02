@@ -36,7 +36,7 @@
         </button>
         <button id="btn-5" class="menu-item ">
           <span class="iconoir-report-columns"></span>
-          <span class="desc">Users</span>
+          <span class="desc" >Users</span>
         </button>
         <button id="btn-6" class="menu-item ">
           <span class="iconoir-report-columns"></span>
@@ -302,8 +302,60 @@
         
          
         </section>
-        <!--------------->
+        <!----------------Users--------------------->
+        <section id="section4" class="section">
+          
+          <div>
+            <h2>All Users</h2>
+      
+            <% if (users.length> 0) { %>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th colspan="3">Action</th>
+                </tr>
+                <% users.forEach(emp=> { %>
+                  <tr>
+                    <td>
+                      <%= users.fullname %>
+                    </td>
+                    <td>
+                      <%= users.type %>
+                    </td>
+                    <td>
+                      <a href="">View More</a>
+                    </td>
+                    <td>
+                      <% if (users.Type==='client' ){ %>
+                        <a href="">Make Admin</a>
+                        <% } else{ %>
+                          <a href="">Make Client</a>
+                          <% } %>
+                    </td>
+                    <td>
+                      <a href="">Delete</a>
+                    </td>
+                  </tr>
+                  <% }) %>
+              </table>
+              <% } else { %>
+                <p>There are no employees to display...</p>
+                <% } %>
+      
+          </div>
 
+          
+
+
+
+
+
+        
+
+
+        </section>
+<!---------------->
         </div>
       </div>
       <div class="side">
