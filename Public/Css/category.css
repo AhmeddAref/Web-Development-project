@@ -109,29 +109,33 @@ p.price {
   margin-left: 10px;
   margin-right: 0px;
   color: white;
-  display:inline;
+  display: inline;
 }
 
-p.newprice
-{
+p.newprice {
   font-size: 17px;
   margin: 15px;
   margin-left: 5px;
   color: red;
-  display:inline;
+  display: inline;
 }
 
 p.Error {
   font-size: 35px;
 }
 
-button.addtocart {
+a:link,
+a:visited {
+  color: black;
+}
+a.addtocart {
+  color: #000;
   padding: 1.3em 3em;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
-  color: #000;
+
   background-color: #fff;
   border: none;
   border-radius: 45px;

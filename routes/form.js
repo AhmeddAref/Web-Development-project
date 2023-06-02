@@ -14,6 +14,7 @@ const errors = "";
 router.get("/", function (req, res, next) {
   const errorMessage = req.query.error || "";
   res.render("form", {
+    err: "",
     errorMessage: errorMessage,
     errors: errors,
     mode: "",

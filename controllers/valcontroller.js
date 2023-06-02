@@ -22,6 +22,7 @@ const signupController = (req, res) => {
   const errorMessage = req.query.error || "";
   if (!errors.isEmpty()) {
     res.render("form", {
+      err: "",
       errorMessage: errorMessage,
       title: "Signup page - Validation Failed",
       errors: errors.array(),

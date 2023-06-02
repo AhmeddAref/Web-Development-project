@@ -8,29 +8,29 @@ import {
   addoffers,
   deleteproduct,
 } from "../controllers/Admin.js";
-
+import offers from "../Data/offers.js";
 import categories from "../models/categories.js";
 
 var router = Router();
-// // check if admin
-// router.use((req, res, next) => {
-//   if (req.session.Email !== undefined && req.session.Type === "admin") {
-//     next();
-//   } else {
-//     categories.find().then((result) => {
-//       res.render("index", {
-//         cat: result,
-//         offers: offers,
+// check if admin
+router.use((req, res, next) => {
+  if (req.session.Email !== undefined && req.session.Type === "admin") {
+    next();
+  } else {
+    categories.find().then((result) => {
+      res.render("index", {
+        cat: result,
+        offers: offers,
 
-//         err: "You are not an Admin",
-//         Email:
-//           req.session && req.session.Email !== undefined
-//             ? req.session.Email
-//             : "",
-//       });
-//     });
-//   }
-// });
+        err: "You are not an Admin",
+        Email:
+          req.session && req.session.Email !== undefined
+            ? req.session.Email
+            : "",
+      });
+    });
+  }
+});
 
 /* GET home page. */
 router.get("/", function (req, res, next) {

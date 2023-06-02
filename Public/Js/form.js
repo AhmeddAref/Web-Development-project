@@ -99,3 +99,18 @@ function isEmail(email) {
 //   document.querySelector(".success").classList.toggle("success-left");
 //   document.querySelector(".frame").classList.toggle("frame-short");
 // });
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("not").innerText === "you must be logged in") {
+    document.getElementById("not-popup").style.display = "block";
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var okbtn = document.getElementsByClassName("not-popup__button");
+
+  document.addEventListener("click", function () {
+    document.getElementById("not").innerText = "";
+    document.getElementById("not-popup").style.display = "none";
+  });
+});
