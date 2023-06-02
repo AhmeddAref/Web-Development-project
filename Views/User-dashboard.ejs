@@ -50,7 +50,7 @@
         <span class="expander iconoir-arrow-right"></span>
       </div>
       <div class="topbar">
-        <h1 class="current">Admin dashboard</h1>
+        <h1 class="current">User Dashboard</h1>
         <span class="search">
           <label><span class="iconoir-search"></span></label>
           <input class="bar" type="text" placeholder="Search..." />
@@ -64,174 +64,11 @@
         </nav>
       </div>
       <div class="dashboard">
-        
-        <p id="trigger">
-          <% if (product) { %>
-            true
-          <% } %>
-        </p>
+       
         
         <section id="section1" class="section">
-          <div class="add" id="form">
-            <form class="mt-5" action="<%= product ? '/Admin-page/editproduct/' + product._id : '/Admin-page/addproduct' %>" method="post" name="form" enctype="multipart/form-data">
-              <div class="mb-3">
-                <label for="UrunID" class="form-label">Product Name:</label>
-                <br>
-                <input
-                  type="text"
-                  class="desc1"
-                  id="UrunID"
-                  aria-describedby=""
-                  name="name"
-                  required
-                  value="<%= product.name %>"
-                />
-              </div>
-        
-              <div class="mb-3">
-                <label for="UrunID" class="form-label">Product description:</label>
-                <br>
-                <input
-                  type="text"
-                  class="desc1"
-                  id="UrunID"
-                  aria-describedby=""
-                  name="description"
-                  required
-                  value="<%= product.description %>"
-                />
-              </div>
-        
-              <div class="mb-3">
-                <label for="UrunAdi" class="desc2">Colors:</label>
-                <input
-                  type="text"
-                  class="desc1"
-                  id="UrunID"
-                  name="color"
-                  aria-describedby=""
-                  required
-                  value="<%= product.color %>"
-                />
-              </div>
-        
-              <div class="mb-3">
-                <label for="Kategori" class="form-label">Product Category:</label>
-                <br>
-                <select
-                  id="Kategori"
-                  class="desc1"
-                  name="category"
-                  required
-                >
-                  <option></option>
-                  <option value="Beds & mattresses" <%= product.category === 'Beds & mattresses' ? 'selected' : '' %>>Beds & mattresses</option>
-                  <option value="Furniture" <%= product.category === 'Furniture' ? 'selected' : '' %>>Furniture</option>
-                  <option value="Decoration" <%= product.category === 'Decoration' ? 'selected' : '' %>>Decoration</option>
-                  <option value="Kitchen & appliances" <%= product.category === 'Kitchen & appliances' ? 'selected' : '' %>>Kitchen & appliances</option>
-                  <option value="Bathroom products" <%= product.category === 'Bathroom products' ? 'selected' : '' %>>Bathroom products</option>
-                </select>
-              </div>
-        
-              <div class="mb-3">
-                <label for="Kategori" class="form-label">Shipping area:</label>
-                <br>
-                <select
-                  id="Kategori"
-                  class="desc1"
-                  name="shippingArea"
-                  required
-                >
-                  <option></option>
-                  <option value="All over Egypt" <%= product.shippingArea === 'All over Egypt' ? 'selected' : '' %>>All over Egypt</option>
-                  <option value="Cairo" <%= product.shippingArea === 'Cairo' ? 'selected' : '' %>>Cairo</option>
-                  <option value="Alexandria" <%= product.shippingArea === 'Alexandria' ? 'selected' : '' %>>Alexandria</option>
-                  <option value="Giza" <%= product.shippingArea === 'Giza' ? 'selected' : '' %>>Giza</option>
-                </select>
-              </div>
-        
-              <div class="mb-3">
-                <label for="Kategori" class="form-label">Old price:</label>
-                <br>
-                <input
-                  type="number"
-                  class="desc1"
-                  id="UrunMiktar"
-                  name="oldprice"
-                  required
-                  value="<%= product.oldPrice %>"
-                />
-              </div>
-        
-              <div class="mb-3">
-                <label for="Kategori" class="form-label">New price:</label>
-                <br>
-                <input
-                  type="number"
-                  class="desc1"
-                  id="UrunMiktar"
-                  name="newprice"
-                  required
-                  value="<%= product.newPrice %>"
-                />
-              </div>
-        
-              <div class="mb-3">
-                <label for="UrunImage" class="form-label">Product Image:</label>
-                <br>
-                <input
-                  type="file"
-                  class="custom-file-input"
-                  name="img1"
-                  id="UrunImage"
-                />
-              </div>
-        
-              <div class="mb-3">
-                <label for="UrunImage" class="form-label">Product Image:</label>
-                <br>
-                <input
-                  type="file"
-                  class="custom-file-input"
-                  name="img2"
-                  id="UrunImage"
-                />
-              </div>
-        
-              <div class="mb-3">
-                <label for="UrunImage" class="form-label">Product Image:</label>
-                <br>
-                <input
-                  type="file"
-                  class="custom-file-input"
-                  name="img3"
-                  id="UrunImage"
-                />
-              </div>
-        
-              <div class="mb-3">
-                <label for="UrunImage" class="form-label">Product Image:</label>
-                <br>
-                <input
-                  type="file"
-                  class="custom-file-input"
-                  name="img4"
-                  id="UrunImage"
-                />
-              </div>
-        
-              
-      <div class="btndiv">
-        <% if (product) { %>
-          <button type="submit" class="btnn" id="ekleButton">Edit</button>
-        <% } else { %>
-          <button type="submit" class="btnn" id="ekleButton">Add product</button>
-        <% } %>
-
-        <a class="btnn" href="/Admin-page/allproducts">Show all product</a>
-              </div>
-            </form>
-          </div>
+          
+            
         </section>
         
 
@@ -240,56 +77,6 @@
           
         
         
-        
-            <div class="add" id="form">
-              <form class="mt-5" action="/Admin-page/addcategory" method="post" name="form" enctype="multipart/form-data">
-                <div class="mb-3">
-                  <label for="UrunID" class="form-label">Category Name:</label>
-                  <input
-                    type="text"
-                    class="desc1"
-                    id="UrunID"
-                    name="name"
-                    aria-describedby=""
-                    required
-                  />
-                </div>
-        
-                <div class="mb-3">
-                  <label for="UrunImage" class="form-label"
-                    >Category Image:</label
-                  >
-                  
-                  <input
-                    type="file"
-                    class="form-control"
-                    name="image"
-                    id="UrunImage"
-                  />
-                  <br>
-                </div>
-                <div class="mt-4">
-        
-        
-                </div>
-                <div class="btndiv">
-                  <button
-                    type="submit"
-                    class="btnn"
-                    id="ekleButton"
-                  >
-                    Add Category
-                  </button>
-                  <button
-                    type="submit"
-                    class="btnn"
-                    id="ekleButton"
-                  >
-                    Upgrade Category
-                  </button>
-                </div>
-              </form>
-            </div>
       
         
         </section>

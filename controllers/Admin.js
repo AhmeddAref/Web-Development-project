@@ -282,7 +282,8 @@ const deleteproduct = (req, res) => {
 //----------------Users-----------------//
 
 const DeleteUser = (req, res) => {
-  Employees.findByIdAndDelete(req.params.id)
+  users
+    .findByIdAndDelete(req.params.id)
     .then((result) => {
       res.redirect("/admin-page");
     })
@@ -292,7 +293,8 @@ const DeleteUser = (req, res) => {
 };
 
 const toAdmin = (req, res) => {
-  Employees.findByIdAndUpdate(req.params.id, { type: "admin" })
+  users
+    .findByIdAndUpdate(req.params.id, { Type: "admin" })
     .then((result) => {
       res.redirect("/admin-page");
     })
@@ -302,7 +304,8 @@ const toAdmin = (req, res) => {
 };
 
 const toClient = (req, res) => {
-  Employees.findByIdAndUpdate(req.params.id, { type: "user" })
+  users
+    .findByIdAndUpdate(req.params.id, { Type: "client" })
     .then((result) => {
       res.redirect("/admin-page");
     })

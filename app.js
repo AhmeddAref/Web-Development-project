@@ -11,6 +11,8 @@ import category_router from "./routes/category.js";
 import checkout_router from "./routes/chechout-page.js";
 import form_router from "./routes/form.js";
 import product_router from "./routes/product-page.js";
+import user_router from "./routes/User-dashboard.js";
+
 import users from "./models/users.js";
 import products from "./models/products.js";
 
@@ -61,6 +63,7 @@ app.use("/category", category_router);
 app.use("/checkout-page", checkout_router);
 app.use("/form", form_router);
 app.use("/product-page", product_router);
+app.use("/User-dashboard", user_router);
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));

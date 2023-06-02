@@ -330,31 +330,34 @@
                     
                     <td>
                       <% if (user.Type==='client' ){ %>
-                        <button
+                        <a
+                        href="/Admin-page/makeadmin/<%= user._id%>"
                     type="submit"
                     class="btnn"
                     id="ekleButton"
                   >
                     Make Admin
-                  </button>
+                  </a>
                         <% } else{ %>
-                          <button
+                          <a
+                          href="/Admin-page/makeclient/<%=user._id%>"
                     type="submit"
                     class="btnn"
                     id="ekleButton"
                   >
                     Make Client
-                  </button>
+                  </a>
                           <% } %>
                     </td>
                     <td>
-                      <button
+                      <a
+                      href="/Admin-page/deleteuser/<%=user._id%>"
                     type="submit"
                     class="btnnn"
                     id="ekleButton"
                   >
                     Delete
-                  </button>
+                  </a>
                     </td>
                   </tr>
                   <% }) %>
