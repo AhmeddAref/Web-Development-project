@@ -764,7 +764,7 @@ input[type="file"]::file-selector-button:hover {
   padding: 10px;
 }
 .btnn {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
   border: none;
   border-radius: 30px;
   color: white;
@@ -776,7 +776,7 @@ input[type="file"]::file-selector-button:hover {
   margin: 5px;
 }
 .btnnn {
-  background-color: red; /* Green */
+  background-color: red;
   border: none;
   border-radius: 30px;
   color: white;
@@ -805,6 +805,7 @@ input[type="file"]::file-selector-button:hover {
 #customers th {
   border: 1px solid #ddd;
   padding: 8px;
+  text-align: center;
 }
 
 #customers tr:nth-child(even) {
@@ -821,4 +822,5 @@ input[type="file"]::file-selector-button:hover {
   text-align: left;
   background-color: #04aa6d;
   color: white;
+  text-align: center;
 }
