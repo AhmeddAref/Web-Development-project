@@ -281,6 +281,36 @@ const deleteproduct = (req, res) => {
 };
 //----------------Users-----------------//
 
+const DeleteUser = (req, res) => {
+  Employees.findByIdAndDelete(req.params.id)
+    .then((result) => {
+      res.redirect("/admin-page");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const toAdmin = (req, res) => {
+  Employees.findByIdAndUpdate(req.params.id, { type: "admin" })
+    .then((result) => {
+      res.redirect("/admin-page");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const toClient = (req, res) => {
+  Employees.findByIdAndUpdate(req.params.id, { type: "user" })
+    .then((result) => {
+      res.redirect("/admin-page");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export {
   addproduct,
   addcategory,
@@ -289,4 +319,7 @@ export {
   updateProduct,
   addoffers,
   deleteproduct,
+  DeleteUser,
+  toAdmin,
+  toClient,
 };

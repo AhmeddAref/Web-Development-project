@@ -7,6 +7,9 @@ import {
   updateProduct,
   addoffers,
   deleteproduct,
+  DeleteUser,
+  toAdmin,
+  toClient,
 } from "../controllers/Admin.js";
 import offers from "../Data/offers.js";
 import categories from "../models/categories.js";
