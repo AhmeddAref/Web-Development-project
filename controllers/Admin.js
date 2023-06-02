@@ -114,15 +114,25 @@ const getallproducts = (req, res) => {
 };
 
 const editproduct = (req, res) => {
-  products
-    .findOne({ _id: req.params.id })
-    .then((product) => {
-      res.render("Admin-page", { product: product });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send("Error retrieving product");
-    });
+  products.findOne({ _id: req.params.id }).then((product) => {
+    users
+      .find()
+      .then((result) => {
+        res.render("Admin-page", {
+          users: result,
+          product: product,
+          Email:
+            req.session && req.session.Email !== undefined
+              ? req.session.Email
+              : "",
+        });
+      })
+
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send("Error retrieving product");
+      });
+  });
 };
 const updateProduct = (req, res) => {
   let imgFiles = [];
@@ -271,23 +281,6 @@ const deleteproduct = (req, res) => {
 };
 //----------------Users-----------------//
 
-const GetAllUsers = (req, res) => {
-  users
-    .find()
-    .then((result) => {
-      res.render("Admin-page", {
-        users: result,
-        Email:
-          req.session && req.session.Email !== undefined
-            ? req.session.Email
-            : "",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 export {
   addproduct,
   addcategory,
@@ -296,5 +289,4 @@ export {
   updateProduct,
   addoffers,
   deleteproduct,
-  GetAllUsers,
 };

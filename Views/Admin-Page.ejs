@@ -34,7 +34,7 @@
           <span class="iconoir-report-columns"></span>
           <span class="desc">About Us</span>
         </button>
-        <button id="btn-5" class="menu-item ">
+        <button  id="btn-5" class="menu-item ">
           <span class="iconoir-report-columns"></span>
           <span class="desc" >Users</span>
         </button>
@@ -312,22 +312,22 @@
               <table>
                 <tr>
                   <th>Name</th>
-                  <th>Position</th>
+                  <th>Email</th>
                   <th colspan="3">Action</th>
                 </tr>
-                <% users.forEach(emp=> { %>
+                <% users.forEach(user=> { %>
                   <tr>
                     <td>
-                      <%= users.fullname %>
+                      <%= user.name %>
                     </td>
                     <td>
-                      <%= users.type %>
+                      <%= user.email %>
                     </td>
                     <td>
                       <a href="">View More</a>
                     </td>
                     <td>
-                      <% if (users.Type==='client' ){ %>
+                      <% if (user.Type==='client' ){ %>
                         <a href="">Make Admin</a>
                         <% } else{ %>
                           <a href="">Make Client</a>
@@ -340,7 +340,7 @@
                   <% }) %>
               </table>
               <% } else { %>
-                <p>There are no employees to display...</p>
+                <p>There are no users to display...</p>
                 <% } %>
       
           </div>

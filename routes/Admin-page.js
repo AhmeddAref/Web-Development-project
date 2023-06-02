@@ -10,7 +10,7 @@ import {
 } from "../controllers/Admin.js";
 import offers from "../Data/offers.js";
 import categories from "../models/categories.js";
-import { GetAllUsers } from "../controllers/Admin.js";
+import users from "../models/users.js";
 
 var router = Router();
 // check if admin
@@ -35,10 +35,13 @@ router.use((req, res, next) => {
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("Admin-page", {
-    Email:
-      req.session && req.session.Email !== undefined ? req.session.Email : "",
-    product: "",
+  users.find().then((result) => {
+    res.render("Admin-page", {
+      users: result,
+      product: "",
+      Email:
+        req.session && req.session.Email !== undefined ? req.session.Email : "",
+    });
   });
 });
 
@@ -52,7 +55,5 @@ router.get("/addoffers/:id", addoffers);
 router.get("/deleteproduct/:image1/:image2/:image3/:image4/:id", deleteproduct);
 
 router.get("/products", () => {});
-
-router.get("/getusers", GetAllUsers);
 
 export default router;
