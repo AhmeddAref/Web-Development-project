@@ -1,14 +1,18 @@
 import { Router } from "express";
-import cart from "../Data/cart.js";
+import { addcartdata } from "../controllers/cart.js";
 
 var router = Router();
 
-/* GET home page. */
 router.get("/", function (req, res, next) {
+  const cartItems = req.session.cartItems || [];
+
   res.render("cart-page", {
-    cart: cart,
-    Email: req.session && req.session.Email !== undefined ? req.session.Email : "",
+    cart: { items: cartItems },
+    Email:
+      req.session && req.session.Email !== undefined ? req.session.Email : "",
   });
 });
+
+router.get("/addcartdata/:id", addcartdata);
 
 export default router;
