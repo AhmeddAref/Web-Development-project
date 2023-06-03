@@ -117,32 +117,3 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-//////////////////////////////////////////////////////////////////////////////////////////
-
-
-function validateForm(event) {
-  event.preventDefault(); 
-
-  const productNameInput = document.getElementById('productName');
-  const productPriceInput = document.getElementById('productPrice');
-  const productName = productNameInput.value;
-  const productPrice = productPriceInput.value;
-
-  const namePattern = /^[A-Za-z\s]+$/; 
-  const pricePattern = /^\d+(\.\d{1,2})?$/; 
-
-  if (!namePattern.test(productName)) {
-    alert6.innerHTML = "Please enter a valid product name (letters and spaces only).";
-    productNameInput.focus();
-    return;
-  }
-
-  if (!pricePattern.test(productPrice)) {
-    alert7.innerHTML = "Please enter a valid product price (numeric value only).";
-    productPriceInput.focus();
-    return;
-  }
-
-  document.getElementById('addProductForm').submit();
-}
