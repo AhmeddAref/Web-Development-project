@@ -68,6 +68,36 @@ const addproduct = (req, res) => {
   }
 };
 
+
+////////////////////////////////////////////////////////
+//add product form validation
+  
+  function validateForm(_addProductForm) {
+    _addproduct.preventDefault(); 
+  
+    const productNameInput = document.getElementById('productName');
+    const productPriceInput = document.getElementById('productPrice');
+    const productName = productNameInput.value;
+    const productPrice = productPriceInput.value;
+  
+    const namePattern = /^[A-Za-z\s]+$/; 
+    const pricePattern = /^\d+(\.\d{1,2})?$/; 
+  
+    if (!namePattern.test(productName)) {
+      alert('Please enter a valid product name (letters and spaces only).');
+      productNameInput.focus();
+      return;
+    }
+  
+    if (!pricePattern.test(productPrice)) {
+      alert('Please enter a valid product price (numeric value only).');
+      productPriceInput.focus();
+      return;
+    }
+  
+    document.getElementById('addProductForm').submit();
+  };
+
 //add category
 const addcategory = (req, res) => {
   if (!req.body.name || !req.files || Object.keys(req.files).length === 0) {
