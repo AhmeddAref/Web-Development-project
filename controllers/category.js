@@ -21,4 +21,24 @@ const getcategories = (req, res) => {
   });
 };
 
-export { getcategories };
+const getproductbycat = (req, res) => {
+  categories.find().then((cat) => {
+    products
+      .find({ category: req.params.category })
+      .then((result) => {
+        res.render("category", {
+          categories: cat,
+          products: result,
+          Email:
+            req.session && req.session.Email !== undefined
+              ? req.session.Email
+              : "",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+};
+
+export { getcategories, getproductbycat };

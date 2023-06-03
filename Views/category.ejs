@@ -6,12 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/Css/category.css" />
-
-    <script>
-      function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-    </script>
   </head>
 
   <body>
@@ -20,7 +14,8 @@
       <button onclick="myFunction()" class="dropbtn">PRODUCTS</button>
       <div id="myDropdown" class="dropdown-content">
         <% categories.forEach(cat=> { %>
-        <a href="/category/<%= cat.name %>"><%= cat.name %></a>
+        <a onclick="selectCategory('<%= cat.name %>')"><%= cat.name %></a>
+
         <% }) %>
       </div>
     </div>
@@ -62,5 +57,7 @@
       </Center>
       <% } %>
     </div>
+    <script src="
+    /Js/category.js"></script>
   </body>
 </html>
