@@ -70,33 +70,30 @@ const addproduct = (req, res) => {
 
 
 ////////////////////////////////////////////////////////
+
 //add product form validation
-  
-  function validateForm(_addProductForm) {
-    _addproduct.preventDefault(); 
-  
-    const productNameInput = document.getElementById('productName');
-    const productPriceInput = document.getElementById('productPrice');
-    const productName = productNameInput.value;
-    const productPrice = productPriceInput.value;
-  
-    const namePattern = /^[A-Za-z\s]+$/; 
-    const pricePattern = /^\d+(\.\d{1,2})?$/; 
-  
-    if (!namePattern.test(productName)) {
-      alert('Please enter a valid product name (letters and spaces only).');
-      productNameInput.focus();
-      return;
-    }
-  
-    if (!pricePattern.test(productPrice)) {
-      alert('Please enter a valid product price (numeric value only).');
-      productPriceInput.focus();
-      return;
-    }
-  
-    document.getElementById('addProductForm').submit();
-  };
+
+app.post('/addproduct', (req, res) => {
+  const { name, price } = req.body;
+
+  const namePattern = /^[a-zA-Z\s]+$/; 
+  const pricePattern = /^\d+(\.\d{1,2})?$/; 
+
+  if (!name || !price) {
+    return res.status(400).json({ error: 'Name and price are required fields.' });
+  }
+
+  if (!namePattern.test(name)) {
+    return res.status(400).json({ error: 'Invalid product name. Only letters and spaces are allowed.' });
+  }
+
+  if (!pricePattern.test(price)) {
+    return res.status(400).json({ error: 'Invalid product price. Please provide a numeric value.' });
+  }
+
+
+  res.status(200).json({ message: 'Product added successfully.' });
+});
 
 //add category
 const addcategory = (req, res) => {
