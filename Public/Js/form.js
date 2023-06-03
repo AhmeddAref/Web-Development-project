@@ -49,6 +49,8 @@ let alert2 = document.getElementById("alert2");
 let alert3 = document.getElementById("alert3");
 let alert4 = document.getElementById("alert4");
 let alert5 = document.getElementById("alert5");
+let alert6 = document.getElementById("alert6");
+let alert7 = document.getElementById("alert7");
 function handleInput() {
   let userNameValue = userName.value.trim();
   let emailValue = email.value.trim();
@@ -131,13 +133,13 @@ function validateForm(event) {
   const pricePattern = /^\d+(\.\d{1,2})?$/; 
 
   if (!namePattern.test(productName)) {
-    alert('Please enter a valid product name (letters and spaces only).');
+    alert6.innerHTML = "Please enter a valid product name (letters and spaces only).";
     productNameInput.focus();
     return;
   }
 
   if (!pricePattern.test(productPrice)) {
-    alert('Please enter a valid product price (numeric value only).');
+    alert7.innerHTML = "Please enter a valid product price (numeric value only).";
     productPriceInput.focus();
     return;
   }
