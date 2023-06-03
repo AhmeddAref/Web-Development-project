@@ -32,7 +32,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 .active {
-  background: var(--c-bg-elements);
+  background: #ff5858;
 }
 
 main {
@@ -48,7 +48,8 @@ main .menu {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: var(--c-darker);
+  background-color: #e98074;
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -71,6 +72,7 @@ main .menu {
   backdrop-filter: blur(1rem);
   border-right: solid 1px var(--c-lighter);
 }
+
 main .menu:hover,
 main .menu:active {
   width: 200px;
@@ -123,6 +125,7 @@ main .menu .primary {
 main .menu .primary .menu-item {
   font-weight: 400;
   text-decoration: none;
+
   color: var(--c-elements);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -142,7 +145,7 @@ main .menu:active .primary .menu-item {
   border-radius: var(--max-radius);
 }
 main .menu .primary .menu-item:hover {
-  background: var(--c-bg-elements);
+  background: #ff5858;
 }
 main .menu .primary .menu-item span:first-child {
   font-size: 21px;
@@ -349,7 +352,7 @@ main .topbar nav .menu-item:hover {
 
 main .dashboard {
   border-top: solid 1px var(--c-lighter);
-  background-color: var(--c-light);
+  background-color: #eae7dc;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   padding: var(--o-padding);
@@ -440,7 +443,7 @@ main .dashboard .cardcolumn .card .meta {
 }
 
 main .side {
-  background-color: var(--c-medium);
+  background-color: #eae7dc;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   padding: var(--o-padding);
@@ -564,8 +567,8 @@ main .side .weather .meta .datetime .time {
   main .menu {
     width: 74px;
     position: absolute;
-    top: 60px;
-    height: 90%;
+    top: 45px;
+    height: 100%;
   }
   main .menu .avatar {
     -ms-flex-wrap: wrap;

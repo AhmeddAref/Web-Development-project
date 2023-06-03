@@ -10,6 +10,7 @@
     <!-- search icon  -->
   </head>
   <body>
+    <%- include("./partials/nav.ejs") %>
     <main class="container">
       <div class="menu">
        
@@ -30,18 +31,12 @@
           <span class="iconoir-report-columns"></span>
           <span class="desc">Offers</span>
         </button>
-        <button id="btn-4" class="menu-item ">
-          <span class="iconoir-report-columns"></span>
-          <span class="desc">About Us</span>
-        </button>
+       
         <button  id="btn-5" class="menu-item ">
           <span class="iconoir-report-columns"></span>
           <span class="desc" >Users</span>
         </button>
-        <button id="btn-6" class="menu-item ">
-          <span class="iconoir-report-columns"></span>
-          <span class="desc">Analytics</span>
-        </button>
+        
         <button id="btn-7" class="menu-item ">
           <span class="iconoir-report-columns"></span>
           <span class="desc">Settings</span>
@@ -49,20 +44,7 @@
         </nav>
         <span class="expander iconoir-arrow-right"></span>
       </div>
-      <div class="topbar">
-        <h1 class="current">Admin dashboard</h1>
-        <span class="search">
-          <label><span class="iconoir-search"></span></label>
-          <input class="bar" type="text" placeholder="Search..." />
-        </span>
-        <nav>
-          <button id="btn-3" class="menu-item ">
-            <span class="iconoir-report-columns"></span>
-            <span class="desc">View website</span>
-          </button>
-          
-        </nav>
-      </div>
+      
       <div class="dashboard">
         
         <p id="trigger">
@@ -400,19 +382,7 @@
             </div>
           </div>
         </div>
-        <div class="card">
-          <header>Schedule</header>
-          <div class="content">
-            <ul>
-              <li>(15:30) Deliver the project to client</li>
-              <li>(18:00) Meet Mike @ White Goose</li>
-              <li>(19:30) Dinner with Mary @ Kit-Bar</li>
-              <li>(22:00) Watch the Falcons match</li>
-              <li>(23:30) Headspace Meditate</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+       
     </main>
 
   
