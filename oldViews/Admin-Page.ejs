@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/Css/adminPage.css" />
+    <link rel="stylesheet" href="/Css/Homepage.css" />
+    <!-- search icon  -->
+  </head>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+    <main class="container">
+      <div class="menu">
+       
+        <nav class="primary">
+          
+          <button id="btn-1" class="menu-item active">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">Products</span>
+        </button>
+       
+        <button id="btn-2" class="menu-item ">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">Category</span>
+        </button>
+
+
+        <button id="btn-3" class="menu-item ">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">Offers</span>
+        </button>
+       
+        <button  id="btn-5" class="menu-item ">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc" >Users</span>
+        </button>
+        
+        <button id="btn-7" class="menu-item ">
+          <span class="iconoir-report-columns"></span>
+          <span class="desc">Settings</span>
+        </button>
+        </nav>
+        <span class="expander iconoir-arrow-right"></span>
+      </div>
+      
+      <div class="dashboard">
+        
+        <p id="trigger">
+          <% if (product) { %>
+            true
+          <% } %>
+        </p>
+        
+        <section id="section1" class="section">
+          <div class="add" id="form">
+            <form class="mt-5" action="<%= product ? '/Admin-page/editproduct/' + product._id : '/Admin-page/addproduct' %>" method="post" name="form" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="UrunID" class="form-label">Product Name:</label>
+                <br>
+                <input
+                  type="text"
+                  class="desc1"
+                  id="UrunID"
+                  aria-describedby=""
+                  name="name"
+                  required
+                  value="<%= product.name %>"
+                />
+              </div>
+        
+              <div class="mb-3">
+                <label for="UrunID" class="form-label">Product description:</label>
+                <br>
+                <input
+                  type="text"
+                  class="desc1"
+                  id="UrunID"
+                  aria-describedby=""
+                  name="description"
+                  required
+                  value="<%= product.description %>"
+                />
+              </div>
+        
+              <div class="mb-3">
+                <label for="UrunAdi" class="desc2">Colors:</label>
+                <input
+                  type="text"
+                  class="desc1"
+                  id="UrunID"
+                  name="color"
+                  aria-describedby=""
+                  required
+                  value="<%= product.color %>"
+                />
+              </div>
+        
+              <div class="mb-3">
+                <label for="Kategori" class="form-label">Product Category:</label>
+                <br>
+                <select
+                  id="Kategori"
+                  class="desc1"
+                  name="category"
+                  required
+                >
+                  <option></option>
+                  <option value="Beds & mattresses" <%= product.category === 'Beds & mattresses' ? 'selected' : '' %>>Beds & mattresses</option>
+                  <option value="Furniture" <%= product.category === 'Furniture' ? 'selected' : '' %>>Furniture</option>
+                  <option value="Decoration" <%= product.category === 'Decoration' ? 'selected' : '' %>>Decoration</option>
+                  <option value="Kitchen & appliances" <%= product.category === 'Kitchen & appliances' ? 'selected' : '' %>>Kitchen & appliances</option>
+                  <option value="Bathroom products" <%= product.category === 'Bathroom products' ? 'selected' : '' %>>Bathroom products</option>
+                </select>
+              </div>
+        
+              <div class="mb-3">
+                <label for="Kategori" class="form-label">Shipping area:</label>
+                <br>
+                <select
+                  id="Kategori"
+                  class="desc1"
+                  name="shippingArea"
+                  required
+                >
+                  <option></option>
+                  <option value="All over Egypt" <%= product.shippingArea === 'All over Egypt' ? 'selected' : '' %>>All over Egypt</option>
+                  <option value="Cairo" <%= product.shippingArea === 'Cairo' ? 'selected' : '' %>>Cairo</option>
+                  <option value="Alexandria" <%= product.shippingArea === 'Alexandria' ? 'selected' : '' %>>Alexandria</option>
+                  <option value="Giza" <%= product.shippingArea === 'Giza' ? 'selected' : '' %>>Giza</option>
+                </select>
+              </div>
+        
+              <div class="mb-3">
+                <label for="Kategori" class="form-label">Old price:</label>
+                <br>
+                <input
+                  type="number"
+                  class="desc1"
+                  id="UrunMiktar"
+                  name="oldprice"
+                  required
+                  value="<%= product.oldPrice %>"
+                />
+              </div>
+        
+              <div class="mb-3">
+                <label for="Kategori" class="form-label">New price:</label>
+                <br>
+                <input
+                  type="number"
+                  class="desc1"
+                  id="UrunMiktar"
+                  name="newprice"
+                  required
+                  value="<%= product.newPrice %>"
+                />
+              </div>
+        
+              <div class="mb-3">
+                <label for="UrunImage" class="form-label">Product Image:</label>
+                <br>
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  name="img1"
+                  id="UrunImage"
+                />
+              </div>
+        
+              <div class="mb-3">
+                <label for="UrunImage" class="form-label">Product Image:</label>
+                <br>
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  name="img2"
+                  id="UrunImage"
+                />
+              </div>
+        
+              <div class="mb-3">
+                <label for="UrunImage" class="form-label">Product Image:</label>
+                <br>
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  name="img3"
+                  id="UrunImage"
+                />
+              </div>
+        
+              <div class="mb-3">
+                <label for="UrunImage" class="form-label">Product Image:</label>
+                <br>
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  name="img4"
+                  id="UrunImage"
+                />
+              </div>
+        
+              
+      <div class="btndiv">
+        <% if (product) { %>
+          <button type="submit" class="btnn" id="ekleButton">Edit</button>
+        <% } else { %>
+          <button type="submit" class="btnn" id="ekleButton">Add product</button>
+        <% } %>
+
+        <a class="btnn" href="/Admin-page/allproducts">Show all product</a>
+              </div>
+            </form>
+          </div>
+        </section>
+        
+
+        <!-- ----------Categories---------- -->
+        <section id="section2" class="section">
+          
+        
+        
+        
+            <div class="add" id="form">
+              <form class="mt-5" action="/Admin-page/addcategory" method="post" name="form" enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label for="UrunID" class="form-label">Category Name:</label>
+                  <input
+                    type="text"
+                    class="desc1"
+                    id="UrunID"
+                    name="name"
+                    aria-describedby=""
+                    required
+                  />
+                </div>
+        
+                <div class="mb-3">
+                  <label for="UrunImage" class="form-label"
+                    >Category Image:</label
+                  >
+                  
+                  <input
+                    type="file"
+                    class="form-control"
+                    name="image"
+                    id="UrunImage"
+                  />
+                  <br>
+                </div>
+                <div class="mt-4">
+        
+        
+                </div>
+                <div class="btndiv">
+                  <button
+                    type="submit"
+                    class="btnn"
+                    id="ekleButton"
+                  >
+                    Add Category
+                  </button>
+                  <button
+                    type="submit"
+                    class="btnn"
+                    id="ekleButton"
+                  >
+                    Upgrade Category
+                  </button>
+                </div>
+              </form>
+            </div>
+      
+        
+        </section>
+        <!----------------Offers------------------->
+
+        <section id="section3" class="section">
+          
+        
+           
+        
+         
+        </section>
+        <!----------------Users--------------------->
+        <section id="section4" class="section">
+          
+          <div>
+            <h2>All Users</h2>
+      
+            <% if (users.length> 0) { %>
+              <table id="customers">
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th colspan="2">Action</th>
+                </tr>
+                <% users.forEach(user=> { %>
+                  <tr>
+                    <td>
+                      <%= user.name %>
+                    </td>
+                    <td>
+                      <%= user.email %>
+                    </td>
+                    <td>
+                      <%= user.phonenumber %>
+                    </td>
+                    
+                    <td>
+                      <% if (user.Type==='client' ){ %>
+                        <a
+                        href="/Admin-page/makeadmin/<%= user._id%>"
+                    type="submit"
+                    class="btnn"
+                    id="ekleButton"
+                  >
+                    Make Admin
+                  </a>
+                        <% } else{ %>
+                          <a
+                          href="/Admin-page/makeclient/<%=user._id%>"
+                    type="submit"
+                    class="btnn"
+                    id="ekleButton"
+                  >
+                    Make Client
+                  </a>
+                          <% } %>
+                    </td>
+                    <td>
+                      <a
+                      href="/Admin-page/deleteuser/<%=user._id%>"
+                    type="submit"
+                    class="btnnn"
+                    id="ekleButton"
+                  >
+                    Delete
+                  </a>
+                    </td>
+                  </tr>
+                  <% }) %>
+              </table>
+              <% } else { %>
+                <p>There are no users to display...</p>
+                <% } %>
+      
+          </div>
+
+          
+
+
+
+
+
+        
+
+
+        </section>
+<!---------------->
+        </div>
+      </div>
+      <div class="side">
+        <div class="card weather">
+          <img
+            class="condition"
+            src="https://user-images.githubusercontent.com/30212452/203724734-5f748507-7ae4-49f9-89f8-7fce3112cd95.png"
+          />
+          <div class="content"></div>
+          <div class="meta">
+            <span class="location">
+              <span class="iconoir-pin-alt"></span>
+              Athens, GR
+            </span>
+            <div class="datetime">
+              <span class="iconoir-calendar"></span>
+              <span class="date">21 July, 2022</span>
+              <span class="time">5:01</span>
+            </div>
+          </div>
+        </div>
+       
+    </main>
+
+  
+
+    <script src="/Js/adminpage.js"></script>
+  </body>
+</html>

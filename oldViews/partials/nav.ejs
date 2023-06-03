@@ -1,0 +1,94 @@
+<head>
+    <link rel="stylesheet" href="/Css/nav.css"/>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+</head>
+
+<header id="nav-wrapper">
+    <nav id="nav">
+      <div class="nav left">
+        <span class="gradient skew"
+          ><h1 class="logo un-skew"><a href="/">IKEA</a></h1></span
+        >
+      </div>
+      <div class="nav center">
+        <a href="/#home" class="nav-link active"
+          ><span class="nav-link-span"
+            ><span class="u-nav">Home</span></span
+          ></a
+        >
+        <a href="/#categories" class="nav-link"
+          ><span class="nav-link-span"
+            ><span class="u-nav">categories</span></span
+          ></a
+        >
+        <a href="/#Offers" class="nav-link"
+          ><span class="nav-link-span"
+            ><span class="u-nav">Offers</span></span
+          ></a
+        >
+        <a href="/#contact" class="nav-link"
+          ><span class="nav-link-span"
+            ><span class="u-nav">Contact Us</span></span
+          ></a
+        >
+        <a href="/#About-US" class="nav-link"
+        ><span class="nav-link-span"
+          ><span class="u-nav">About US</span></span
+        ></a
+      ></div>
+      <div class="nav right">
+        <button id="menu" class="btn-nav">
+          <span class="fas fa-bars"></span>
+        </div>
+        <!--------------- search bar----------- -->
+
+        <div class="srch_wrpr">
+          
+        </button>
+          <input type="checkbox" name="" class="checkbox" />
+          <div class="srch_sb_cnt">
+            <input
+              type="text"
+              name="text_bar"
+              class="sech_txt_inpt"
+              placeholder="Type to search..."
+            />
+            <button class="srch_btn">
+              <i class="fa fa-search"aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <!-- profile button -->
+        <div>
+          <% if(Email==="" ) {%>
+            <a href="/form"><button class="btn-signin">Sign in</button></a>
+            <% }else { %>
+              <a href="/signout"><button class="btn-signin">Sign Out</button></a>
+              
+              <a href="/Admin-page"><button class="userbtn"> <i class="fa fa-user" style="font-size:30px;"></i> </button></a>  
+              <a href="/User-dashboard"><button class="userbtn"> <i class="fa fa-user" style="font-size:30px;"></i> </button></a>       
+      
+              
+              <% } %>
+            
+          
+         
+    
+         </div>
+        <!-- cart button -->
+      <div>
+        <a href="/cart-page">
+       <button class="cartbtn"><i class='fa fa-shopping-cart' style='font-size:36px'></i></button></a>
+       </div>
+       
+        <!-- --------- -->
+      </div>
+      
+    </nav>
+  </header>
+
+
+  
