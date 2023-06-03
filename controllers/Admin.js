@@ -68,32 +68,30 @@ const addproduct = (req, res) => {
   }
 };
 
-
 ////////////////////////////////////////////////////////
 
 //add product form validation
 
-app.post('/addproduct', (req, res) => {
-  const { name, price } = req.body;
+// app.post('/addproduct', (req, res) => {
+//   const { name, price } = req.body;
 
-  const namePattern = /^[a-zA-Z\s]+$/; 
-  const pricePattern = /^\d+(\.\d{1,2})?$/; 
+//   const namePattern = /^[a-zA-Z\s]+$/;
+//   const pricePattern = /^\d+(\.\d{1,2})?$/;
 
-  if (!name || !price) {
-    return res.status(400).json({ error: 'Name and price are required fields.' });
-  }
+//   if (!name || !price) {
+//     return res.status(400).json({ error: 'Name and price are required fields.' });
+//   }
 
-  if (!namePattern.test(name)) {
-    return res.status(400).json({ error: 'Invalid product name. Only letters and spaces are allowed.' });
-  }
+//   if (!namePattern.test(name)) {
+//     return res.status(400).json({ error: 'Invalid product name. Only letters and spaces are allowed.' });
+//   }
 
-  if (!pricePattern.test(price)) {
-    return res.status(400).json({ error: 'Invalid product price. Please provide a numeric value.' });
-  }
+//   if (!pricePattern.test(price)) {
+//     return res.status(400).json({ error: 'Invalid product price. Please provide a numeric value.' });
+//   }
 
-
-  res.status(200).json({ message: 'Product added successfully.' });
-});
+//   res.status(200).json({ message: 'Product added successfully.' });
+// });
 
 //add category
 const addcategory = (req, res) => {
