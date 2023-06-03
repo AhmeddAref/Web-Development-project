@@ -17,27 +17,4 @@ const getproduct = (req, res) => {
       console.log(err);
     });
 };
-
-// const getoffers = (req, res) => {
-//   products
-//     .find()
-//     .then((result) => {
-//       const offers = result;
-
-//       res.get("/", function (req, res, next) {
-//         res.render("index", {
-//           offers: offers,
-
-//           Email:
-//             req.session && req.session.Email !== undefined
-//               ? req.session.Email
-//               : "",
-//         });
-//       });
-//     })
-//     .catch((error) => {
-//       // Handle any errors that occur during the database query
-//     });
-// };
-
 export { getproduct };
