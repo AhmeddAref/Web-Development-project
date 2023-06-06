@@ -1,5 +1,6 @@
 import { body, validationResult } from "express-validator";
 import users from "../models/users.js";
+import bcrypt from "bcrypt";
 
 const validateSignup = [
   body("fullname").notEmpty().withMessage("fullname is required"),
@@ -17,7 +18,7 @@ const validateSignup = [
 
 // Process signup form
 
-const signupController = (req, res) => {
+const signupController = async (req, res) => {
   const errors = validationResult(req);
   const errorMessage = req.query.error || "";
   if (!errors.isEmpty()) {
@@ -30,23 +31,33 @@ const signupController = (req, res) => {
       Email:
         req.session && req.session.Email !== undefined ? req.session.Email : "",
     });
-  } else {
-    const user = new users({
-      name: req.body.fullname,
-      email: req.body.email,
-      phonenumber: req.body.phone,
-      password: req.body.password,
-      Type: req.body.type,
-    });
+  }
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+    const existingUser = await User.findOne({ username: req.body.username });
 
-    user
-      .save()
-      .then((result) => {
-        res.redirect("/form");
-      })
-      .catch((err) => {
-        console.log(err);
+    if (existingUser) {
+      console.log("Email already exists");
+      res.send("Email already exists");
+    } else {
+      const user = new users({
+        name: req.body.fullname,
+        email: req.body.email,
+        phonenumber: req.body.phone,
+        password: req.body.password,
+        Type: req.body.type,
       });
+
+      await user.save().then((result) => {
+        res.redirect("/form");
+      });
+
+      console.log("User saved successfully");
+      res.send("User saved successfully");
+    }
+  } catch (error) {
+    console.log(error);
+    res.send("An error occurred");
   }
 };
 
