@@ -61,22 +61,23 @@ const validateCheckUser = [
   body("password").notEmpty().withMessage("Password is required"),
 ];
 
-const checkuser = (req, res) => {
-  const { email, password } = req.body;
+const checkuser = async (req, res) => {
+  const email = req.body.Email;
+  const password = req.body.password;
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.redirect("/form?error=Invalid information. Please try again.");
   }
 
-  const user = users.findOne({ email: email });
+  const user = await users.findOne({ email: email });
   if (!user) {
     res.redirect("/form?error=Invalid information. Please try again.");
   } else {
     bcrypt.compare(password, user.password).then((passwordMatch) => {
       if (passwordMatch) {
         req.session.Email = email;
-        req.session.Type = result.Type;
+        req.session.Type = user.Type;
 
         res.redirect("/");
       } else {
