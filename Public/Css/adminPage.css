@@ -833,11 +833,20 @@ input[type="file"]::file-selector-button:hover {
 }
 
 .user-details-container{
-  height: 60%;
+  height: 40%;
   width: 110%;
-  background-color: gray;
+  background-color: #8e8d8a;
   border-radius: 5%;
   text-align:initial;
   padding-top: 20%;
+  margin-top: 20%;
+  margin-left: 20%;
+}
+.Uname{
+  background-color: #e98074;
+  border-radius: 40%;
+  border-top: 40%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
