@@ -7,6 +7,7 @@ import {
   updateProduct,
   addoffers,
   deleteproduct,
+  UserInfo,
   DeleteUser,
   toAdmin,
   toClient,
@@ -56,6 +57,9 @@ router.get("/editproduct/:id", editproduct);
 router.post("/editproduct/:id", updateProduct);
 router.get("/addoffers/:id", addoffers);
 router.get("/deleteproduct/:image1/:image2/:image3/:image4/:id", deleteproduct);
+
+router.get("/:id", UserInfo);
+
 router.get("/deleteuser/:id", DeleteUser);
 router.get("/makeadmin/:id", toAdmin);
 router.get("/makeclient/:id", toClient);

@@ -831,3 +831,13 @@ input[type="file"]::file-selector-button:hover {
   color: white;
   text-align: center;
 }
+
+.user-details-container{
+  height: 60%;
+  width: 110%;
+  background-color: gray;
+  border-radius: 5%;
+  text-align:initial;
+  padding-top: 20%;
+}
+
