@@ -344,11 +344,11 @@ const deleteproduct = (req, res) => {
     });
 };
 //----------------Users-----------------//
-const UserInfo = (req, res) => {
-  users.find().then((result) => {
-    res.render("User-dashboard", { arrUsers: result });
-  });
-};
+// const UserInfo = (req, res) => {
+//   users.find().then((result) => {
+//     res.render("User-dashboard", { arrUsers: result });
+//   });
+// };
 
 const DeleteUser = (req, res) => {
   users
@@ -390,7 +390,6 @@ export {
   updateProduct,
   addoffers,
   deleteproduct,
-  UserInfo,
   DeleteUser,
   toAdmin,
   toClient,

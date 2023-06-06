@@ -1,13 +1,8 @@
 import { Router } from "express";
-
+import { getUser } from "../controllers/User.js";
 var router = Router();
 
-router.get("/", (req, res, next) => {
-  res.render("User-dashboard", {
-    Email:
-      req.session && req.session.Email !== undefined ? req.session.Email : "",
-    Type: req.session && req.session.Type !== undefined ? req.session.Type : "",
-  });
-});
 
+
+router.get("/", getUser);
 export default router;
