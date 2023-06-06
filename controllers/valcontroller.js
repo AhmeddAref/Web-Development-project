@@ -2,6 +2,8 @@ import { body, validationResult } from "express-validator";
 import users from "../models/users.js";
 import bcrypt from "bcrypt";
 
+const saltRounds = 10;
+
 const validateSignup = [
   body("fullname").notEmpty().withMessage("fullname is required"),
   body("email").isEmail().withMessage("Invalid email"),
@@ -34,30 +36,23 @@ const signupController = async (req, res) => {
   }
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
-    const existingUser = await User.findOne({ username: req.body.username });
 
-    if (existingUser) {
-      console.log("Email already exists");
-      res.send("Email already exists");
-    } else {
-      const user = new users({
-        name: req.body.fullname,
-        email: req.body.email,
-        phonenumber: req.body.phone,
-        password: req.body.password,
-        Type: req.body.type,
-      });
+    const user = new users({
+      name: req.body.fullname,
+      email: req.body.email,
+      phonenumber: req.body.phone,
+      password: hashedPassword,
+      Type: req.body.type,
+    });
 
-      await user.save().then((result) => {
-        res.redirect("/form");
-      });
+    await user.save().then((result) => {
+      res.redirect("/form");
+    });
 
-      console.log("User saved successfully");
-      res.send("User saved successfully");
-    }
+    console.log("User saved successfully");
+    res.send("User saved successfully");
   } catch (error) {
     console.log(error);
-    res.send("An error occurred");
   }
 };
 
@@ -67,18 +62,19 @@ const validateCheckUser = [
 ];
 
 const checkuser = (req, res) => {
+  const { email, password } = req.body;
+
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.redirect("/form?error=Invalid information. Please try again.");
   }
 
-  const email = req.body.Email;
-  const password = req.body.password;
-
-  users
-    .findOne({ email: email, password: password })
-    .then((result) => {
-      if (result) {
+  const user = users.findOne({ email: email });
+  if (!user) {
+    res.redirect("/form?error=Invalid information. Please try again.");
+  } else {
+    bcrypt.compare(password, user.password).then((passwordMatch) => {
+      if (passwordMatch) {
         req.session.Email = email;
         req.session.Type = result.Type;
 
@@ -86,11 +82,8 @@ const checkuser = (req, res) => {
       } else {
         res.redirect("/form?error=Invalid information. Please try again.");
       }
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send("Internal Server Error");
     });
+  }
 };
 
 const checkemail = (req, res) => {
