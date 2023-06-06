@@ -13,10 +13,7 @@ import form_router from "./routes/form.js";
 import product_router from "./routes/product-page.js";
 import user_router from "./routes/User-dashboard.js";
 
-import users from "./models/users.js";
-import products from "./models/products.js";
-
-import MongoStore from "connect-mongo";
+//import MongoStore from "connect-mongo";
 import path from "path";
 import fileUpload from "express-fileupload";
 const __filename = fileURLToPath(import.meta.url);
@@ -52,6 +49,7 @@ app.use(
     secret: "your-secret-key",
     resave: false,
     saveUninitialized: true,
+    rolling: true,
     // store: sessionStore,
   })
 );

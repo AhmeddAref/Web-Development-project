@@ -198,7 +198,6 @@ a:hover {
 }
 .sech_txt_inpt:focus {
   letter-spacing: 2px;
-  text-transform: uppercase;
 }
 .sech_txt_inpt:focus,
 .srch_btn:focus {

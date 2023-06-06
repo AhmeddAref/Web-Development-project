@@ -27,7 +27,7 @@ const addproduct = (req, res) => {
     const uploadPath =
       __dirname +
       "/public/images/" +
-      req.body.un +
+      req.body.name +
       "_img" +
       (i + 1) +
       path.extname(imgFile.name);
