@@ -16,7 +16,7 @@
   <script src="/js/ajax.js"></script>
 
 <script>   function validate() {
-  if (document.getElementById('result').innerHTML.includes('taken'))
+  if (document.getElementById('result1').innerHTML.includes('taken'))
       return false;
   else
       return true;
@@ -83,7 +83,7 @@
                           <label for="email">Email</label>
                           <input class="form-styling" type="email" name="email" placeholder="Email" id="email"/>
                           <small id="alert1"> <%= errorMsgs[1] %></small>
-                          <small id="result"></small>
+                          <small id="result1"></small>
                           <label for="phone">Phone number</label>
                           <input class="form-styling" type="text" name="phone" placeholder="Phone number" id="phone"/>
                           <small id="alert1"> <%= errorMsgs[2] %></small>

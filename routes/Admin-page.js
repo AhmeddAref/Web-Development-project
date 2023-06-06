@@ -32,6 +32,8 @@ router.use((req, res, next) => {
           req.session && req.session.Email !== undefined
             ? req.session.Email
             : "",
+        Type:
+          req.session && req.session.Type !== undefined ? req.session.Type : "",
       });
     });
   }
@@ -45,6 +47,8 @@ router.get("/", function (req, res, next) {
       product: "",
       Email:
         req.session && req.session.Email !== undefined ? req.session.Email : "",
+      Type:
+        req.session && req.session.Type !== undefined ? req.session.Type : "",
     });
   });
 });

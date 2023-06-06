@@ -32,6 +32,8 @@ const signupController = async (req, res) => {
       mode: "signup",
       Email:
         req.session && req.session.Email !== undefined ? req.session.Email : "",
+      Type:
+        req.session && req.session.Type !== undefined ? req.session.Type : "",
     });
   }
   try {

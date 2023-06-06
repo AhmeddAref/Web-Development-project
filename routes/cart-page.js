@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addcartdata } from "../controllers/cart.js";
+import { addcartdata, deleteCartItem } from "../controllers/cart.js";
 
 var router = Router();
 
@@ -10,9 +10,11 @@ router.get("/", function (req, res, next) {
     cart: { items: cartItems },
     Email:
       req.session && req.session.Email !== undefined ? req.session.Email : "",
+    Type: req.session && req.session.Type !== undefined ? req.session.Type : "",
   });
 });
 
 router.get("/addcartdata/:id", addcartdata);
+router.get("/deleteCartItem/:id", deleteCartItem);
 
 export default router;

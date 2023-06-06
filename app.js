@@ -13,10 +13,7 @@ import form_router from "./routes/form.js";
 import product_router from "./routes/product-page.js";
 import user_router from "./routes/User-dashboard.js";
 
-import users from "./models/users.js";
-import products from "./models/products.js";
-
-import MongoStore from "connect-mongo";
+//import MongoStore from "connect-mongo";
 import path from "path";
 import fileUpload from "express-fileupload";
 const __filename = fileURLToPath(import.meta.url);
@@ -40,19 +37,20 @@ app.use(express.json());
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-const sessionStore = MongoStore.create({
-  mongoUrl:
-    "mongodb+srv://OmarHosny18:i6EsIoO2Dd5Naob7@cluster0.bmkpjny.mongodb.net/project?retryWrites=true&w=majority",
-  collectionName: "sessions",
-  ttl: 14 * 24 * 60 * 60,
-});
+// const sessionStore = MongoStore.create({
+//   mongoUrl:
+//     "mongodb+srv://OmarHosny18:i6EsIoO2Dd5Naob7@cluster0.bmkpjny.mongodb.net/project?retryWrites=true&w=majority",
+//   collectionName: "sessions",
+//   ttl: 14 * 24 * 60 * 60,
+// });
 
 app.use(
   session({
     secret: "your-secret-key",
     resave: false,
     saveUninitialized: true,
-    store: sessionStore,
+    rolling: true,
+    // store: sessionStore,
   })
 );
 
@@ -88,74 +86,12 @@ app.post("/save-data", (req, res) => {
   res.status(200).send("Data received");
 });
 
-// handle remove button
-app.post("/remove-item", (req, res) => {
-  const data = req.body;
-
-  const itemIndex = cart.items.findIndex((item) => item.title === data.title);
-
-  if (itemIndex !== -1) {
-    cart.items.splice(itemIndex, 1);
-
-    cart.subtotal = cart.items.reduce(
-      (acc, item) => acc + item.price * item.quantity,
-      0
-    );
-    cart.tax = cart.subtotal * 0.05;
-    cart.total = cart.subtotal + cart.tax + cart.shipping;
-
-    res.status(200).json({ message: "Item removed successfully" });
-  } else {
-    res.status(400).json({ message: "Item not found in cart" });
-  }
-});
-
 //-------------------------------------------//
 
 app.get("/signout", (req, res) => {
   req.session.destroy();
   res.redirect("/");
 });
-
-//search bar
-// Get a reference to the search input field and search results container
-// const searchInput = document.querySelector("#search-input");
-// const searchResultsContainer = document.querySelector("#search-results");
-
-// // Function to update the search results in the UI
-// function updateSearchResults(results) {
-//   // Clear the previous search results
-//   searchResultsContainer.innerHTML = "";
-
-//   // Iterate over the results and create HTML elements to display them
-//   results.forEach((result) => {
-//     const resultItem = document.createElement("div");
-//     resultItem.textContent = result.title;
-
-//     // Append the result item to the search results container
-//     searchResultsContainer.appendChild(resultItem);
-//   });
-// }
-
-// // Function to handle the search input
-// function handleSearchInput() {
-//   const query = searchInput.value; // Get the search query from the input field
-
-//   // Send the Ajax request to the server
-//   fetch(`/search?q=${encodeURIComponent(query)}`)
-//     .then((response) => response.json()) // Parse the response as JSON
-//     .then((data) => {
-//       // Handle the response data
-//       updateSearchResults(data); // Update the search results in the UI
-//     })
-//     .catch((error) => {
-//       // Handle any errors that occurred during the request
-//       console.error(error);
-//     });
-// }
-
-// // Add an event listener to the search input field for input event
-// searchInput.addEventListener("input", handleSearchInput);
 
 //----------------------Validation form------------------//
 

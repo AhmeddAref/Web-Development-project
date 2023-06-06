@@ -11,6 +11,8 @@ const getproduct = (req, res) => {
           req.session && req.session.Email !== undefined
             ? req.session.Email
             : "",
+        Type:
+          req.session && req.session.Type !== undefined ? req.session.Type : "",
       });
     })
     .catch((err) => {
