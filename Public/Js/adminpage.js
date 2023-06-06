@@ -39,22 +39,6 @@ date.innerText = `${today.getDate()} ${
 }, ${today.getFullYear()}`;
 time.innerText = `${today.getHours()}:${formatZero(today.getMinutes())}`;
 
-// Weather Data for Athens from open-meteo.com
-const weatherData = async () => {
-  const weather =
-    "https://api.open-meteo.com/v1/forecast?latitude=37.9792&longitude=23.7166&hourly=temperature_2m&current_weather=true";
-  const res = await fetch(weather);
-  const data = await res.json();
-
-  if (data) {
-    weatherContent.innerHTML = `
-    ${data.current_weather.temperature}<span class='celsius'>°C</span>
-    `;
-  }
-};
-
-weatherData();
-
 var btn1 = document.getElementById("btn-1");
 var btn2 = document.getElementById("btn-2");
 

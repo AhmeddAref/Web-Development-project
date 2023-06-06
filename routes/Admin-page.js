@@ -1,6 +1,5 @@
 import { Router } from "express";
 import {
-  addproduct,
   addcategory,
   getallproducts,
   editproduct,
@@ -11,6 +10,8 @@ import {
   DeleteUser,
   toAdmin,
   toClient,
+  validateadd,
+  validateController,
 } from "../controllers/Admin.js";
 import offers from "../Data/offers.js";
 import categories from "../models/categories.js";
@@ -49,11 +50,12 @@ router.get("/", function (req, res, next) {
         req.session && req.session.Email !== undefined ? req.session.Email : "",
       Type:
         req.session && req.session.Type !== undefined ? req.session.Type : "",
+      errors: "",
     });
   });
 });
 
-router.post("/addproduct", addproduct);
+router.post("/addproduct", validateadd, validateController);
 
 router.post("/addcategory", addcategory);
 router.get("/allproducts", getallproducts);

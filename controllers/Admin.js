@@ -4,94 +4,122 @@ import { __dirname } from "../app.js";
 import categories from "../models/categories.js";
 import offers from "../Data/offers.js";
 import users from "../models/users.js";
+import { body, validationResult } from "express-validator";
 import fs from "fs";
 
 //add product
-const addproduct = (req, res) => {
-  let imgFiles = [];
-  let uploadPaths = [];
-
-  console.log(req.files);
-
-  if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send("No files were uploaded.");
-  }
-
-  imgFiles.push(req.files.img1);
-  imgFiles.push(req.files.img2);
-  imgFiles.push(req.files.img3);
-  imgFiles.push(req.files.img4);
-
-  for (let i = 0; i < imgFiles.length; i++) {
-    const imgFile = imgFiles[i];
-    const uploadPath =
-      __dirname +
-      "/public/images/" +
-      req.body.name +
-      "_img" +
-      (i + 1) +
-      path.extname(imgFile.name);
-
-    uploadPaths.push(uploadPath);
-
-    imgFile.mv(uploadPath, function (err) {
-      if (err) {
-        return res.status(500).send(err);
-      }
-
-      if (uploadPaths.length === imgFiles.length && i === imgFiles.length - 1) {
-        const product = new products({
-          name: req.body.name,
-          description: req.body.description,
-          color: req.body.color,
-          category: req.body.category,
-          shippingArea: req.body.shippingArea,
-          oldPrice: req.body.oldprice,
-          newPrice: req.body.newprice,
-          image1: req.body.name + "_img1" + path.extname(imgFiles[0].name),
-          image2: req.body.name + "_img2" + path.extname(imgFiles[1].name),
-          image3: req.body.name + "_img3" + path.extname(imgFiles[2].name),
-          image4: req.body.name + "_img4" + path.extname(imgFiles[3].name),
-        });
-
-        product
-          .save()
-          .then((result) => {
-            res.redirect("/Admin-page");
-          })
-          .catch((err) => {
-            console.log(err);
-            res.status(500).send("Error saving product to database.");
-          });
-      }
-    });
-  }
-};
 
 ////////////////////////////////////////////////////////
 
-//add product form validation
+//add validation
 
-// app.post('/addproduct', (req, res) => {
-//   const { name, price } = req.body;
+const validateadd = [
+  body("name")
+    .matches(/^[a-zA-Z\s]+$/)
 
-//   const namePattern = /^[a-zA-Z\s]+$/;
-//   const pricePattern = /^\d+(\.\d{1,2})?$/;
+    .withMessage("Product name is required"),
+  body("description")
+    .matches(/^[a-zA-Z\s]+$/)
 
-//   if (!name || !price) {
-//     return res.status(400).json({ error: 'Name and price are required fields.' });
-//   }
+    .withMessage("Description required"),
+  body("oldprice")
+    .matches(/^\d+(.\d{1,2})?$/)
 
-//   if (!namePattern.test(name)) {
-//     return res.status(400).json({ error: 'Invalid product name. Only letters and spaces are allowed.' });
-//   }
+    .withMessage("Out of range"),
+  body("newprice")
+    .matches(/^\d+(.\d{1,2})?$/)
 
-//   if (!pricePattern.test(price)) {
-//     return res.status(400).json({ error: 'Invalid product price. Please provide a numeric value.' });
-//   }
+    .withMessage("Out of range"),
+  body("color")
+    .matches(/^[a-zA-Z\s]+$/)
 
-//   res.status(200).json({ message: 'Product added successfully.' });
-// });
+    .withMessage("Product's color is required"),
+  body("category").notEmpty().withMessage("Product's category is required"),
+  body("shippingArea").notEmpty().withMessage("Shipping area is required"),
+];
+
+const validateController = (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    users.find().then((result) => {
+      res.render("Admin-page", {
+        users: result,
+        product: "",
+        Email:
+          req.session && req.session.Email !== undefined
+            ? req.session.Email
+            : "",
+        Type:
+          req.session && req.session.Type !== undefined ? req.session.Type : "",
+        errors: errors.array(),
+      });
+    });
+    console.log(errors.array());
+  } else {
+    let imgFiles = [];
+    let uploadPaths = [];
+
+    console.log(req.files);
+
+    if (!req.files || Object.keys(req.files).length === 0) {
+      return res.status(400).send("No files were uploaded.");
+    }
+
+    imgFiles.push(req.files.img1);
+    imgFiles.push(req.files.img2);
+    imgFiles.push(req.files.img3);
+    imgFiles.push(req.files.img4);
+
+    for (let i = 0; i < imgFiles.length; i++) {
+      const imgFile = imgFiles[i];
+      const uploadPath =
+        __dirname +
+        "/public/images/" +
+        req.body.name +
+        "_img" +
+        (i + 1) +
+        path.extname(imgFile.name);
+
+      uploadPaths.push(uploadPath);
+
+      imgFile.mv(uploadPath, function (err) {
+        if (err) {
+          return res.status(500).send(err);
+        }
+
+        if (
+          uploadPaths.length === imgFiles.length &&
+          i === imgFiles.length - 1
+        ) {
+          const product = new products({
+            name: req.body.name,
+            description: req.body.description,
+            color: req.body.color,
+            category: req.body.category,
+            shippingArea: req.body.shippingArea,
+            oldPrice: req.body.oldprice,
+            newPrice: req.body.newprice,
+            image1: req.body.name + "_img1" + path.extname(imgFiles[0].name),
+            image2: req.body.name + "_img2" + path.extname(imgFiles[1].name),
+            image3: req.body.name + "_img3" + path.extname(imgFiles[2].name),
+            image4: req.body.name + "_img4" + path.extname(imgFiles[3].name),
+          });
+
+          product
+            .save()
+            .then((result) => {
+              res.redirect("/Admin-page");
+            })
+            .catch((err) => {
+              console.log(err);
+              res.status(500).send("Error saving product to database.");
+            });
+        }
+      });
+    }
+  }
+};
 
 //add category
 const addcategory = (req, res) => {
@@ -156,6 +184,7 @@ const editproduct = (req, res) => {
             req.session && req.session.Type !== undefined
               ? req.session.Type
               : "",
+          errors: "",
         });
       })
 
@@ -315,12 +344,11 @@ const deleteproduct = (req, res) => {
     });
 };
 //----------------Users-----------------//
-const UserInfo=(req, res) => {
-  users.find()
-  .then((result) => {
-    res.render("User-dashboard",{arrUsers: result})
-  })
-}
+const UserInfo = (req, res) => {
+  users.find().then((result) => {
+    res.render("User-dashboard", { arrUsers: result });
+  });
+};
 
 const DeleteUser = (req, res) => {
   users
@@ -356,7 +384,6 @@ const toClient = (req, res) => {
 };
 
 export {
-  addproduct,
   addcategory,
   getallproducts,
   editproduct,
@@ -367,4 +394,6 @@ export {
   DeleteUser,
   toAdmin,
   toClient,
+  validateadd,
+  validateController,
 };

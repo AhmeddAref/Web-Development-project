@@ -359,20 +359,23 @@
       </div>
       <div class="side">
         <div class="card weather">
-          <img
-            class="condition"
-            src="https://user-images.githubusercontent.com/30212452/203724734-5f748507-7ae4-49f9-89f8-7fce3112cd95.png"
-          />
+          <% if (errors && errors.length > 0) { %>
+            
+              <% for (let i = 0; i < errors.length; i++) { %>
+                <p style="color: red;"><%= errors[i].msg %></p>
+              <% } %>
+            
+          <% } %>
           <div class="content"></div>
           <div class="meta">
             <span class="location">
               <span class="iconoir-pin-alt"></span>
-              Athens, GR
+              
             </span>
             <div class="datetime">
               <span class="iconoir-calendar"></span>
-              <span class="date">21 July, 2022</span>
-              <span class="time">5:01</span>
+              <span class="date"></span>
+              <span class="time"></span>
             </div>
           </div>
         </div>
