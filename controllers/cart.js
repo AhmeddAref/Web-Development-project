@@ -36,6 +36,8 @@ const addcartdata = (req, res, next) => {
       mode: "",
       Email:
         req.session && req.session.Email !== undefined ? req.session.Email : "",
+      Type:
+        req.session && req.session.Type !== undefined ? req.session.Type : "",
     });
   }
 };
