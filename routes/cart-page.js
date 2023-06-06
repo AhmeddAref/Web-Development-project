@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addcartdata } from "../controllers/cart.js";
+import { addcartdata, deleteCartItem } from "../controllers/cart.js";
 
 var router = Router();
 
@@ -15,5 +15,6 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/addcartdata/:id", addcartdata);
+router.get("/deleteCartItem/:id", deleteCartItem);
 
 export default router;
