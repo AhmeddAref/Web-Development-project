@@ -1,7 +1,7 @@
 import { Router } from "express";
 import users from "../models/users.js";
 const getUser = (req, res) => {
-    users.findOne(req.body.email)
+    users.findOne({email:req.session.Email})
     .then((result) => {
           res.render("User-dashboard", {
             user: result,
