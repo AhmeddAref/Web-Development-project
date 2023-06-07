@@ -93,7 +93,11 @@
             <% } else { %>
             <div class="product-price"><%= offer.oldPrice %></div>
             <% } %>
-            <button class="add-to-cart-button">Add to Cart</button>
+            <a
+              href="/cart-page/addcartdata/<%=offer._id%>"
+              class="add-to-cart-button"
+              >Add to Cart</a
+            >
           </div>
           <% }) %>
         </div>
